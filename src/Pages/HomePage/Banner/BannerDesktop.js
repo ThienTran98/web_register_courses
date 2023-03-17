@@ -31,7 +31,10 @@ export default function BannerDesktop() {
                 Improve Your Online Learning Experience Better Instantly
               </h1>
 
-              <p style={{ opacity: 1, transform: "none" }}>
+              <p
+                className="animate__animated animate__backInRight animate__slow  animate__delay-2s"
+                style={{ opacity: 1, transform: "none" }}
+              >
                 We have <span>40k+</span> Online courses &amp;
                 <span>500K+</span> Online registered student. Find your desired
                 Courses from them.

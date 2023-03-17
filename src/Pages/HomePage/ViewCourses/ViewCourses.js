@@ -12,7 +12,7 @@ export default function ViewCourses() {
       <div
         className={`${styles["view__title"]} md:flex lg:flex items-center justify-between px-3 md:px-0 lg:px-0 mb-[30px] md:mb-0 lg:mb-0`}
       >
-        <div className="">
+        <div className="animate__animated animate__fadeInUp animate__delay-3s">
           <h2 className="text-sm font-semibold mb-[10px] md:text-base lg:text-base">
             Featured Courses
           </h2>

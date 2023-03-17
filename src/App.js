@@ -8,6 +8,7 @@ import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import CoursesListPage from "./Pages/CoursesListPage/CoursesListPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import InforPage from "./Pages/InforPage/InforPage";
+import "animate.css";
 
 function App() {
   return (
