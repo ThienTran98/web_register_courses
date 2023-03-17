@@ -1,0 +1,17 @@
+.bg__top-header {
+  background-color: #0f6c76;
+}
+.bg__top-header .font-size-15 {
+  font-size: 15px;
+}
+.bg__top-header .text__header-color {
+  color: #e6f8fc;
+}
+.bg__top-header .li-item {
+  margin: 0 30px;
+  width: 0.5px;
+  background-color: #fff;
+  height: 24px;
+  text-align: center;
+  border: none;
+}/*# sourceMappingURL=Top_Header.module.css.map */

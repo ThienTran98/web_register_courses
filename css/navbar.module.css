@@ -1,0 +1,65 @@
+.container__search {
+  border: 1px solid #f2f0ef;
+  background-color: #f2f0ef;
+  padding: 10px 20px;
+  height: 55px;
+  border-radius: 5px;
+}
+
+.form-control {
+  width: 100%;
+  color: #0d0c0c;
+  transition: all 0.5s ease;
+  background-color: #f2f0ef;
+  outline: none;
+}
+
+.bg__background {
+  background: linear-gradient(133.65deg, #6cc17e 2.24%, #098b99);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 1s;
+}
+.bg__background:hover {
+  opacity: 0.8;
+}
+
+.item__cart--number {
+  position: absolute;
+  content: "";
+  top: -50%;
+  right: -15%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #7b7af5;
+  z-index: -1;
+}
+
+.arrow__position {
+  content: "";
+  position: absolute;
+  right: -25%;
+  width: 320px;
+  top: 120%;
+  z-index: 10;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 12px 6px 12px 12px;
+  border-radius: 6px;
+}
+
+.arrow__position-mobile {
+  content: "";
+  position: absolute;
+  right: -100%;
+  width: 300px;
+  top: 120%;
+  z-index: 10;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 12px 6px 12px 12px;
+  border-radius: 6px;
+}/*# sourceMappingURL=navbar.module.css.map */

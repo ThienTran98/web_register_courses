@@ -1,0 +1,18 @@
+@import "../../../styles/variable.scss";
+.bg__top-header {
+  background-color: $bg_top--header;
+  .font-size-15 {
+    font-size: 15px;
+  }
+  .text__header-color {
+    color: $color-text-1;
+  }
+  .li-item {
+    margin: 0 30px;
+    width: 0.5px;
+    background-color: #fff;
+    height: 24px;
+    text-align: center;
+    border: none;
+  }
+}
