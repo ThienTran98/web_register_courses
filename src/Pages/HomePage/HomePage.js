@@ -5,6 +5,8 @@ import ViewCourses from "./ViewCourses/ViewCourses";
 import OurFeatures from "./OurFeatures/OurFeatures";
 import TopCategories from "./TopCategories/TopCategories";
 import OnlineEducation from "./OnlineEducation/OnlineEducation";
+import SayAboutUs from "./SayAboutUs/SayAboutUs";
+import NumberYears from "./NumberYears/NumberYears";
 
 export default function HomePage() {
   return (
@@ -15,6 +17,8 @@ export default function HomePage() {
       <TopCategories />
       <OnlineEducation />
       <OurFeatures />
+      <SayAboutUs />
+      <NumberYears />
     </div>
   );
 }
