@@ -1,5 +1,8 @@
 @import "../../../styles/variable.scss";
 
+.number__container {
+  background-color: $bg-number;
+}
 .number__title {
   font-size: 24px;
   color: $text-secondary;

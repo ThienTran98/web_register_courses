@@ -10,7 +10,9 @@ import styles from "./NumberYears.module.scss";
 export default function NumberYears() {
   return (
     <div className="hidden md:block lg:block">
-      <div className="py-0 md:py-[60px] lg:py-[100px] px-10 ">
+      <div
+        className={`py-0 md:py-[60px] lg:py-[100px] px-10 ${styles["number__container"]}`}
+      >
         <div className="flex items-center justify-around">
           <div className="flex flex-col items-center">
             <img src={logo1} alt="logo" />
