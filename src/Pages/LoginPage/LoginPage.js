@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { setUserLogin } from "../../redux-toolkit/userSlice";
 import { postLogin } from "../../Service/userService";
 import Swal from "sweetalert2";
+import { userLocalStorage } from "./../../Service/localService";
 
 export default function LoginPage() {
   const Toast = Swal.mixin({
@@ -29,7 +30,10 @@ export default function LoginPage() {
       postLogin(values)
         .then((res) => {
           dispatch(setUserLogin(res.data));
+          userLocalStorage.set(res.data);
           Toast.fire({
+            confirmButtonColor: "#49ae88",
+            color: "#3098b1",
             icon: "success",
             title: "Signed in successfully",
           });
@@ -40,6 +44,8 @@ export default function LoginPage() {
         .catch((err) => {
           console.log(err);
           Toast.fire({
+            confirmButtonColor: "#49ae88",
+            color: "#3098b1",
             icon: "error",
             title: `${err.response.data} xin vui lòng thử lại`,
           });

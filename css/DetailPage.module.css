@@ -1,0 +1,7 @@
+.coupon {
+  background-image: linear-gradient(134.32deg, #6cc17e -19.8%, #098b99);
+  border-radius: 5px;
+}
+.coupon:hover {
+  background-image: linear-gradient(315deg, #098b99, #057fa8);
+}/*# sourceMappingURL=DetailPage.module.css.map */

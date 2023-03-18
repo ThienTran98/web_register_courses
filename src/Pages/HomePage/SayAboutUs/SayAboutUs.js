@@ -15,7 +15,7 @@ export default function SayAboutUs() {
           <div
             className={`flex items-center justify-center px-0 md:px-3 lg:px-3  ${styles["about__right"]}`}
           >
-            <h2 className="text-[28px] md:text-[40px] lg:text-[40px] leading-10 md:leading-[60px] lg:leading-[40px] ">
+            <h2 className="text-[28px] md:text-[40px] lg:text-[40px] leading-10 md:leading-[60px] lg:leading-[80px] ">
               Our Students Are Our Strength. See What They Say About Us
             </h2>
           </div>

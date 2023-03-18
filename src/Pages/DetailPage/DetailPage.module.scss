@@ -1,0 +1,8 @@
+@import "../../styles/variable.scss";
+.coupon {
+  background-image: $bg-title-course-hover;
+  border-radius: 5px;
+  &:hover {
+    background-image: $bg-category-courses;
+  }
+}

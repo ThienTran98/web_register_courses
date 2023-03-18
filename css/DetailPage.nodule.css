@@ -1,0 +1,6 @@
+.coupon {
+  background: var(--bg-title-popularCourses);
+}
+.coupon:hover {
+  background: var(--bg-view-btn);
+}/*# sourceMappingURL=DetailPage.nodule.css.map */
