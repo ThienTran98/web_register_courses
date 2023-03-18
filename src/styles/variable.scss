@@ -12,9 +12,13 @@ $bg-input: hsla(0, 0%, 100%, 0.3);
 $bg-btn: linear-gradient(#f0bf79, #f0bf79);
 $bg-title-popularCourses: linear-gradient(315deg, #098b99, #057fa8);
 $bg-title-course-hover: linear-gradient(134.32deg, #6cc17e -19.8%, #098b99);
-$bg-features: #f6fafb;
+$bg-features: #f1efee;
 $bg-number: #f2f0ef;
-
+$bg-online-education: linear-gradient(
+  134.98deg,
+  rgba(155, 212, 167, 0.4) 14.29%,
+  rgba(48, 158, 169, 0.1)
+);
 $bg-course-btn: linear-gradient(#f0bf79, #f0bf79);
 $bg-course-btn-heart: linear-gradient(#0f6c76, #0f6c76);
 $bg-view-btn: linear-gradient(133.65deg, #6cc17e 2.24%, #098b99);

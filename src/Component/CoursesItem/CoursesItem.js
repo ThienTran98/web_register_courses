@@ -21,9 +21,8 @@ export default function CoursesItem() {
   const renderItemCourses = () => {
     return listCourses.slice(0, 4).map((course) => {
       return (
-        <div className="px-3 md:px-0 lg:px-0">
+        <div key={course.maKhoaHoc} className="px-3 md:px-0 lg:px-0">
           <div
-            key={course.maKhoaHoc}
             className={`w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow relative ${styles["courses_item"]} overflow-hidden`}
           >
             <a href="#">

@@ -4,6 +4,7 @@ import PopularCourses from "./PopularCourses/PopularCourses";
 import ViewCourses from "./ViewCourses/ViewCourses";
 import OurFeatures from "./OurFeatures/OurFeatures";
 import TopCategories from "./TopCategories/TopCategories";
+import OnlineEducation from "./OnlineEducation/OnlineEducation";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <PopularCourses />
       <ViewCourses />
       <TopCategories />
+      <OnlineEducation />
       <OurFeatures />
     </div>
   );

@@ -160,9 +160,7 @@ export default function TopCategories() {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center">
-        <button> Browse All</button>
-      </div>
+      <h3 className="flex items-center justify-center">Browse All</h3>
     </div>
   );
 }

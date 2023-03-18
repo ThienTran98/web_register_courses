@@ -1,0 +1,25 @@
+@import "../../../styles/variable.scss";
+
+.feature {
+  background-color: $bg-features;
+}
+.features__title h3 {
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+.features__title h2 {
+  font-weight: 700;
+}
+
+.features__item {
+  background-color: $color-font-1;
+  border-radius: 20px;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.features__item:hover {
+  transform: translateY(-8px);
+  transition: all 0.3 ease;
+}

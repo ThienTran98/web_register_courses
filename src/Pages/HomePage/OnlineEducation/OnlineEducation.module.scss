@@ -1,0 +1,70 @@
+@import "../../../styles/variable.scss";
+
+.onlineEducation__title p {
+  color: $color-font-6;
+  line-height: 1.8rem;
+}
+
+.onlineEducation__img-left {
+  border-radius: 5px;
+}
+.onlineEducation__image {
+  position: relative;
+}
+
+.onlineEducation__icon {
+  position: absolute;
+  content: "";
+  background-color: $color-font-1;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.onlineEducation__icon-play {
+  position: absolute;
+  content: "";
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  color: $text-secondary;
+}
+.onlineEducation__img-right h2 {
+  font-weight: 700;
+  cursor: pointer;
+}
+.onlineEducation__img-right h2:hover {
+  color: $text-secondary;
+}
+.onlineEducation__img-right h3 {
+  color: $color-font-6;
+}
+
+.onlineEducation__btn {
+  color: $color-font-1;
+  background-image: $bg-view-btn;
+  border-radius: 5px;
+  transition: all 0.3 ease;
+}
+
+.onlineEducation__btn:hover {
+  background-image: $bg-title-popularCourses;
+}
+
+.onlineEducation__image-transform::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 515px;
+  height: 100%;
+  max-height: 515px;
+  background: $bg-online-education;
+  border-radius: 50%;
+  z-index: -1;
+  margin: auto;
+}
