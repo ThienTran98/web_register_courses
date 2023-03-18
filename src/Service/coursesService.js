@@ -9,7 +9,7 @@ export const getDetailCourses = (id) => {
 
 export const getCourseListPagination = (currentPage) => {
   return base_URL.get(
-    `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc_PhanTrang?page=${currentPage}&pageSize=10&MaNhom=GP01`
+    `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc_PhanTrang?page=${currentPage}&pageSize=12&MaNhom=GP01`
   );
 };
 export const postRegisterCourses = (data) => {
