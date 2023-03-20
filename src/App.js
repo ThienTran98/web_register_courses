@@ -10,6 +10,7 @@ import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import InforPage from "./Pages/InforPage/InforPage";
 import "animate.css";
 import CheckOutPage from "./Pages/CheckOutPage/CheckOutPage";
+import Profile from "./Pages/Profile/Profile";
 
 function App() {
   return (
@@ -69,6 +70,14 @@ function App() {
             element={
               <LayoutDefault>
                 <CheckOutPage />
+              </LayoutDefault>
+            }
+          />
+          <Route
+            path="/profile/basic-information"
+            element={
+              <LayoutDefault>
+                <Profile />
               </LayoutDefault>
             }
           />

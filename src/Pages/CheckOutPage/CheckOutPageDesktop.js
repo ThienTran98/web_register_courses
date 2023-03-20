@@ -106,8 +106,8 @@ export default function CheckOutPageDesktop() {
       showConfirmButton: false,
       timer: 1000,
     });
-    coursesListRegisterStorage.remove();
     setTimeout(() => {
+      coursesListRegisterStorage.remove();
       window.location.reload();
     }, 1500);
   };

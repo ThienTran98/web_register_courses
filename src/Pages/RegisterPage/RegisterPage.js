@@ -47,7 +47,6 @@ export default function RegisterPage() {
     onSubmit: (values) => {
       postRegister(values)
         .then((res) => {
-          console.log(res);
           Swal.fire({
             position: "center",
             icon: "success",

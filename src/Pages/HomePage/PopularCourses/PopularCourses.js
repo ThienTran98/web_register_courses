@@ -3,7 +3,6 @@ import CoursesItem from "../../../Component/CoursesItem/CoursesItem";
 import styles from "./PopularCourses.module.scss";
 
 export default function PopularCourses({ listCourses }) {
-  console.log(listCourses);
   const renderPopularCourses = () => {
     return listCourses.slice(0, 4).map((item) => {
       return <CoursesItem course={item} />;

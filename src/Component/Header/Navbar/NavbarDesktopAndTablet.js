@@ -204,8 +204,11 @@ export default function NavbarDesktopAndTablet() {
                         </NavLink>
                       </li>
                       <li className="py-2">
-                        <a
-                          href=""
+                        <NavLink
+                          onClick={() => {
+                            setShowInfor(!showInfor);
+                          }}
+                          to="/profile/basic-information"
                           className="flex items-center no-underline hover:no-underline hover:text-teal-500"
                         >
                           <FontAwesomeIcon
@@ -213,7 +216,7 @@ export default function NavbarDesktopAndTablet() {
                             icon={faGear}
                           />
                           Account Setting
-                        </a>
+                        </NavLink>
                       </li>
                     </ul>
                     <div

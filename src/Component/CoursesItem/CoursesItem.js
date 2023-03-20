@@ -17,7 +17,6 @@ export default function CoursesItem({ course }) {
   const handleDispatchCourseWishList = (course) => {
     dispatch(setCoursesListWishList(course));
   };
-
   return (
     <div key={course?.maKhoaHoc} className="px-3 md:px-0 lg:px-0">
       <div
