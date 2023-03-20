@@ -12,7 +12,6 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { message } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -20,6 +19,7 @@ import { setUserLogOut } from "../../../redux-toolkit/userSlice";
 import logoIcon from "../../../asset/img/logo.png";
 
 import styles from "./navbar.module.scss";
+import Swal from "sweetalert2";
 
 export default function NavbarDesktopAndTablet() {
   const [show, setShow] = useState(false);
@@ -33,13 +33,21 @@ export default function NavbarDesktopAndTablet() {
   const handleLogOut = () => {
     dispatch(setUserLogOut(null));
     setShowInfor(false);
-    message.success("Đăng xuất thành công ");
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Log out successfully",
+      showConfirmButton: false,
+      timer: 1000,
+    });
     setTimeout(() => {
       navigation("/login");
     }, 1500);
   };
   //
-
+  const listRegisterCourses = useSelector((state) => {
+    return state.coursesSlice.coursesListRegister;
+  });
   return (
     <div>
       <div className="container px-8 mx-auto py-4 lg:py-2.5">
@@ -82,12 +90,14 @@ export default function NavbarDesktopAndTablet() {
           </div>
           <ul className="flex justify-between items-center">
             <li className="px-8 md:mr-8  lg:mr-8 lg:border-x-zinc-400  lg:border-y-transparent text-3xl lg:text-2xl lg:border-2">
-              <NavLink to="/wishList" className="relative">
+              <NavLink to="/check-out" className="relative">
                 <FontAwesomeIcon
                   className="text-teal-600 block"
                   icon={faCartShopping}
                 />
-                <p className={`${styles["item__cart--number"]}`}>0</p>
+                <p className={`${styles["item__cart--number"]} font-bold`}>
+                  {listRegisterCourses.length}
+                </p>
               </NavLink>
             </li>
             {!user ? (

@@ -1,14 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { message } from "antd";
 import {
-  coursesListAddToCartStorage,
   coursesListRegisterStorage,
   coursesListWishListLocalStorage,
 } from "./../Service/localService";
 
 const initialState = {
-  coursesListWishList: coursesListWishListLocalStorage.get(),
-  coursesListAddToCart: [],
+  coursesListWishList: [],
   coursesListRegister: coursesListRegisterStorage.get(),
 };
 
@@ -16,6 +14,7 @@ const coursesSlice = createSlice({
   name: "coursesSlice",
   initialState,
   reducers: {
+    // danh sách khóa học yêu thích
     setCoursesListWishList: (state, action) => {
       let newCoursesListWishList = [...state.coursesListWishList];
 
@@ -32,7 +31,6 @@ const coursesSlice = createSlice({
         message.success("Remove From WishList");
         state.coursesListWishList = newCoursesListWishList;
       }
-      coursesListWishListLocalStorage.set(newCoursesListWishList);
     },
     setCoursesListAddToCart: (state, action) => {
       let newCoursesListAddToCart = [...state.coursesListAddToCart];
@@ -51,14 +49,18 @@ const coursesSlice = createSlice({
         state.coursesListAddToCart = newCoursesListAddToCart;
       }
     },
+    // đăng kí ghi danh , danh sách khóa học
     setRegisterCoursesList: (state, action) => {
       let newCoursesListRegister = [...state.coursesListRegister];
-
       const index = newCoursesListRegister.findIndex((course) => {
         return course.maKhoaHoc === action.payload.maKhoaHoc;
       });
       if (index == -1) {
-        let newCourseRegister = { ...action.payload };
+        let newCourseRegister = {
+          ...action.payload,
+          giaHienTai: 599,
+          giaKhuyenMai: 399,
+        };
         newCoursesListRegister.push(newCourseRegister);
         state.coursesListRegister = newCoursesListRegister;
       } else {
@@ -67,6 +69,7 @@ const coursesSlice = createSlice({
       }
       coursesListRegisterStorage.set(newCoursesListRegister);
     },
+    // hủy ghi danh
     setDeleteCoursesListRegister: (state, action) => {
       let newCoursesListRegister = [...state.coursesListRegister];
       const index = newCoursesListRegister.findIndex((course) => {

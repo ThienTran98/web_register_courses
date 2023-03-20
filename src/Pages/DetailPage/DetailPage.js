@@ -50,7 +50,6 @@ export default function DetailPage() {
         taiKhoan: user.taiKhoan,
       })
         .then((res) => {
-          console.log(res);
           dispatch(setRegisterCoursesList(detail));
           Swal.fire({
             confirmButtonColor: "#49ae88",
@@ -67,7 +66,7 @@ export default function DetailPage() {
         .catch((error) => {
           Swal.fire({
             confirmButtonColor: "#49ae88",
-            title: error.response.data,
+            title: "Already signed up for this course",
             color: "#3098b1",
             showClass: {
               popup: "animate__animated animate__fadeInDown",

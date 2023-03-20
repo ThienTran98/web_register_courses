@@ -25,26 +25,26 @@ export const userLocalStorage = {
 };
 
 ///
-export const coursesListWishListLocalStorage = {
-  set: (coursesData) => {
-    // convert dữ liệu từ Ob sang json
-    let coursesListWishListJSON = JSON.stringify(coursesData);
-    // lưu xuống local
-    localStorage.setItem(COURSES_LOCAL_WISHLIST, coursesListWishListJSON);
-  },
-  get: () => {
-    //lấy dữ liệu lên
-    let coursesListWishList = localStorage.getItem(COURSES_LOCAL_WISHLIST);
-    if (coursesListWishList) {
-      return JSON.parse(coursesListWishList);
-    } else {
-      return [];
-    }
-  },
-  remove: () => {
-    localStorage.removeItem(COURSES_LOCAL_WISHLIST);
-  },
-};
+// export const coursesListWishListLocalStorage = {
+//   set: (coursesData) => {
+//     // convert dữ liệu từ Ob sang json
+//     let coursesListWishListJSON = JSON.stringify(coursesData);
+//     // lưu xuống local
+//     localStorage.setItem(COURSES_LOCAL_WISHLIST, coursesListWishListJSON);
+//   },
+//   get: () => {
+//     //lấy dữ liệu lên
+//     let coursesListWishList = localStorage.getItem(COURSES_LOCAL_WISHLIST);
+//     if (coursesListWishList) {
+//       return JSON.parse(coursesListWishList);
+//     } else {
+//       return [];
+//     }
+//   },
+//   remove: () => {
+//     localStorage.removeItem(COURSES_LOCAL_WISHLIST);
+//   },
+// };
 
 //
 
@@ -66,7 +66,7 @@ export const coursesListAddToCartStorage = {
     if (coursesListAddToCartJSON) {
       return JSON.parse(coursesListAddToCartJSON);
     } else {
-      return null;
+      return [];
     }
   },
   remove: () => {

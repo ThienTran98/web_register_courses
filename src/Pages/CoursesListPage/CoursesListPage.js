@@ -44,7 +44,7 @@ export default function CoursesListPage() {
             <div className="px-5 pb-5">
               <a href="#">
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 mt-2 min-h-[56px]">
-                  Khóa Học :&nbsp;
+                  Course :&nbsp;
                   {course.tenKhoaHoc.length <= 40
                     ? course.tenKhoaHoc
                     : course.tenKhoaHoc.slice(0, 40) + "..."}
@@ -76,13 +76,13 @@ export default function CoursesListPage() {
                 </span>
               </div>
               <h3>
-                Người Hướng Dẫn :&nbsp;
+                Mentor :&nbsp;
                 {course.nguoiTao.hoTen === null
                   ? "Ẩn danh"
                   : course.nguoiTao.hoTen}
               </h3>
               <div className="flex items-center mt-2 font-medium">
-                Giá : &nbsp;
+                Price : &nbsp;
                 <span className="text-2xl font-normal text-gray-500 line-through mr-3">
                   $599
                 </span>

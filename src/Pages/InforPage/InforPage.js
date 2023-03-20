@@ -1,5 +1,9 @@
 import React from "react";
-import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFaceSadCry,
+  faHeart,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ImageCourse from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
 import { NavLink } from "react-router-dom";
@@ -10,6 +14,9 @@ export default function InforPage() {
   const courseWishList = useSelector((state) => {
     return state.coursesSlice.coursesListWishList;
   });
+
+  console.log(courseWishList);
+  console.log(courseWishList.length);
   const renderCoursesWishList = () => {
     return courseWishList.map((course) => {
       return (
@@ -27,7 +34,7 @@ export default function InforPage() {
             <div className="px-5 pb-5">
               <a href="#">
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 mt-2 min-h-[56px]">
-                  Khóa Học :&nbsp;
+                  Course :&nbsp;
                   {course.tenKhoaHoc.length <= 40
                     ? course.tenKhoaHoc
                     : course.tenKhoaHoc.slice(0, 40) + "..."}
@@ -59,13 +66,13 @@ export default function InforPage() {
                 </span>
               </div>
               <h3>
-                Người Hướng Dẫn :&nbsp;
+                Mentor :&nbsp;
                 {course.nguoiTao.hoTen === null
                   ? "Ẩn danh"
                   : course.nguoiTao.hoTen}
               </h3>
               <div className="flex items-center mt-2 font-medium">
-                Giá : &nbsp;
+                Price : &nbsp;
                 <span className="text-2xl font-normal text-gray-500 line-through mr-3">
                   $599
                 </span>
@@ -116,6 +123,28 @@ export default function InforPage() {
       );
     });
   };
+  // check rỗng ds khóa học yêu thích
+  const handleCheckEmptyWishList = () => {
+    if (courseWishList.length == 0) {
+      return (
+        <div className="flex items-center justify-center">
+          <h2 className="text-2xl font-bold text-teal-600">
+            Epmty
+            <FontAwesomeIcon
+              className="text-amber-400 ml-3"
+              icon={faFaceSadCry}
+            />
+          </h2>
+        </div>
+      );
+    } else {
+      return (
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
+          {renderCoursesWishList()}
+        </div>
+      );
+    }
+  };
   return (
     <div className=" py-[60px] md:py-[60px] lg:py-[100px]">
       <div className="px-3 md:px-8 lg:px-8">
@@ -126,10 +155,7 @@ export default function InforPage() {
             Courses WishList
           </h2>
         </div>
-
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
-          {renderCoursesWishList()}
-        </div>
+        {handleCheckEmptyWishList()}
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ body {
   text-rendering: optimizeSpeed;
 }
 .swal2-popup {
-  font-size: 0.7rem !important;
+  font-size: 0.825rem !important;
 }
 
 @tailwind base;

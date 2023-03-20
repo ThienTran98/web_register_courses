@@ -3,7 +3,6 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./registerPage.module.scss";
 import * as Yup from "yup";
-
 import { postRegister } from "../../Service/userService";
 import Swal from "sweetalert2";
 
@@ -52,7 +51,7 @@ export default function RegisterPage() {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Đăng ký thành công",
+            title: "Register Successfully",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -64,7 +63,7 @@ export default function RegisterPage() {
           Swal.fire({
             position: "center",
             icon: "error",
-            title: `${err.response.data} xin vui lòng thử lại`,
+            title: `${err.response.data} please try again`,
             showConfirmButton: false,
             timer: 1500,
           });
