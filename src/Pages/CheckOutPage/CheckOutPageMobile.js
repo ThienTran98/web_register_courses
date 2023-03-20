@@ -17,7 +17,6 @@ export default function CheckOutPageMobile() {
   const listCoursesRegister = useSelector((state) => {
     return state.coursesSlice.coursesListRegister;
   });
-  console.log(listCoursesRegister);
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
