@@ -9,6 +9,7 @@ import CoursesListPage from "./Pages/CoursesListPage/CoursesListPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import InforPage from "./Pages/InforPage/InforPage";
 import "animate.css";
+import CheckOutPage from "./Pages/CheckOutPage/CheckOutPage";
 
 function App() {
   return (
@@ -56,10 +57,18 @@ function App() {
             }
           />
           <Route
-            path="/infor"
+            path="/wishList"
             element={
               <LayoutDefault>
                 <InforPage />
+              </LayoutDefault>
+            }
+          />
+          <Route
+            path="/check-out"
+            element={
+              <LayoutDefault>
+                <CheckOutPage />
               </LayoutDefault>
             }
           />

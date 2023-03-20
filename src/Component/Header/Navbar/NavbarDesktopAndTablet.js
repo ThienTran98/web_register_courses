@@ -82,7 +82,7 @@ export default function NavbarDesktopAndTablet() {
           </div>
           <ul className="flex justify-between items-center">
             <li className="px-8 md:mr-8  lg:mr-8 lg:border-x-zinc-400  lg:border-y-transparent text-3xl lg:text-2xl lg:border-2">
-              <NavLink to="/infor" className="relative">
+              <NavLink to="/wishList" className="relative">
                 <FontAwesomeIcon
                   className="text-teal-600 block"
                   icon={faCartShopping}
@@ -154,6 +154,9 @@ export default function NavbarDesktopAndTablet() {
                           className="flex items-center no-underline hover:no-underline hover:text-teal-500"
                         >
                           <FontAwesomeIcon
+                            onClick={() => {
+                              setShowInfor(!showInfor);
+                            }}
                             className="mr-3 block"
                             icon={faBook}
                           />
@@ -161,8 +164,11 @@ export default function NavbarDesktopAndTablet() {
                         </NavLink>
                       </li>
                       <li className="py-2">
-                        <a
-                          href=""
+                        <NavLink
+                          onClick={() => {
+                            setShowInfor(!showInfor);
+                          }}
+                          to="/check-out"
                           className="flex items-center no-underline hover:no-underline hover:text-teal-500"
                         >
                           <FontAwesomeIcon
@@ -170,7 +176,22 @@ export default function NavbarDesktopAndTablet() {
                             icon={faCreditCard}
                           />
                           My Purchase
-                        </a>
+                        </NavLink>
+                      </li>
+                      <li className="py-2">
+                        <NavLink
+                          onClick={() => {
+                            setShowInfor(!showInfor);
+                          }}
+                          className="flex items-center no-underline hover:no-underline hover:text-teal-500"
+                          to="/wishList"
+                        >
+                          <FontAwesomeIcon
+                            className="mr-3 block"
+                            icon={faHeart}
+                          />
+                          Wishlist
+                        </NavLink>
                       </li>
                       <li className="py-2">
                         <a
@@ -179,24 +200,10 @@ export default function NavbarDesktopAndTablet() {
                         >
                           <FontAwesomeIcon
                             className="mr-3 block"
-                            icon={faHeart}
+                            icon={faGear}
                           />
-                          Wishlist
+                          Account Setting
                         </a>
-                      </li>
-                      <li className="py-2">
-                        <NavLink to="/infor">
-                          <a
-                            href=""
-                            className="flex items-center no-underline hover:no-underline hover:text-teal-500"
-                          >
-                            <FontAwesomeIcon
-                              className="mr-3 block"
-                              icon={faGear}
-                            />
-                            Account Setting
-                          </a>
-                        </NavLink>
                       </li>
                     </ul>
                     <div

@@ -5,9 +5,15 @@ import styles from "./CoursesItem.module.scss";
 import { getCoursesList } from "./../../Service/coursesService";
 import ImageCourse from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  setCoursesListAddToCart,
+  setCoursesListWishList,
+} from "../../redux-toolkit/coursesSlice";
 
 export default function CoursesItem() {
   const [listCourses, setListCourses] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getCoursesList()
@@ -18,6 +24,10 @@ export default function CoursesItem() {
         console.log(err);
       });
   }, []);
+  // dispatch courses wish list
+  const handleDispatchCourseWishList = (course) => {
+    dispatch(setCoursesListWishList(course));
+  };
   const renderItemCourses = () => {
     return listCourses.slice(0, 4).map((course) => {
       return (
@@ -98,6 +108,9 @@ export default function CoursesItem() {
                 <h4 className="flex items-center justify-between mt-4 mb-8">
                   Like :
                   <FontAwesomeIcon
+                    onClick={() => {
+                      handleDispatchCourseWishList(course);
+                    }}
                     className={`text-2xl flex items-center justify-center ${styles["heart__icon"]}`}
                     icon={faHeart}
                   />

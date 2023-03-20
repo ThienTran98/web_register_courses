@@ -1,0 +1,44 @@
+.checkout__pages-heading {
+  background-image: url(../../asset/img/banner-bg.jpg);
+  color: #fff;
+}
+
+.checkout__pages-img1 {
+  position: absolute;
+  left: 200px;
+  top: 150px;
+}
+
+.checkout__pages-img2 {
+  position: absolute;
+  right: 100px;
+  top: 100px;
+}
+
+.check__register--item .check__register--text h2 {
+  color: #148aa7;
+  font-weight: 600;
+}
+
+.check__register--item .check__register--text h3 {
+  color: #646464;
+}
+
+.check__register--text-price {
+  color: #148aa7;
+}
+
+.check__register--text-btn {
+  color: #148aa7;
+}
+
+.check__register--right-btn {
+  background-image: linear-gradient(133.65deg, #6cc17e 2.24%, #098b99);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.check__register--right-btn:hover {
+  opacity: 0.8;
+  background-image: linear-gradient(315deg, #098b99, #057fa8);
+}/*# sourceMappingURL=CheckOutPage.module.css.map */

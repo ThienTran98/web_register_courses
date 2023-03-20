@@ -15,6 +15,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { setRegisterCoursesList } from "../../redux-toolkit/coursesSlice";
 import {
   getDetailCourses,
   postRegisterCourses,
@@ -26,6 +27,7 @@ export default function DetailPage() {
   const [show, setShow] = useState(false);
   const [detail, setDetail] = useState();
   const navigation = useNavigate();
+  const dispatch = useDispatch();
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
@@ -40,7 +42,7 @@ export default function DetailPage() {
   const handeClickButton = (e) => {
     e.preventDefault();
   };
-  const handlRegisterCourses = () => {
+  const handleRegisterCourses = () => {
     // ghi danh và tạo ra mảng để push khóa học đã ghi danh là tham số detail
     if (user) {
       postRegisterCourses({
@@ -48,6 +50,8 @@ export default function DetailPage() {
         taiKhoan: user.taiKhoan,
       })
         .then((res) => {
+          console.log(res);
+          dispatch(setRegisterCoursesList(detail));
           Swal.fire({
             confirmButtonColor: "#49ae88",
             color: "#3098b1",
@@ -533,7 +537,7 @@ export default function DetailPage() {
               </div>
               <div className="mt-3 flex items-center justify-center">
                 <button
-                  onClick={handlRegisterCourses}
+                  onClick={handleRegisterCourses}
                   className={`${styles["coupon"]} px-14 py-3  text-xl focus:outline-transparent text-white  transition-all hover:opacity-80`}
                 >
                   Register

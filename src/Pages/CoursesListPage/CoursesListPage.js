@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCourseListPagination } from "../../Service/coursesService";
 import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,10 +10,10 @@ import ImageCourse from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
 export default function CoursesListPage() {
   const [listCourses, setListCourses] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const dispatch = useDispatch;
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
-  console.log(user);
   const onChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
