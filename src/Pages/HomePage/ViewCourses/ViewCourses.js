@@ -4,7 +4,12 @@ import CoursesItem from "../../../Component/CoursesItem/CoursesItem";
 import styles from "./ViewCourses.module.scss";
 import CoursesShapeIcon from "../../../asset/img/courses-shape.png";
 
-export default function ViewCourses() {
+export default function ViewCourses({ listCourses }) {
+  const handleViewCourses = () => {
+    return listCourses.slice(0, 4).map((item, index) => {
+      return <CoursesItem key={index} course={item} />;
+    });
+  };
   return (
     <div
       className={`lg:pt-[100px] lg:pb-[70px] pt-[60px] pb-[30px] md:pt-[60px] md:pb-[30px] ${styles["view__courses"]} sm:px-0 md:px-8 lg:px-8 relative`}
@@ -27,7 +32,7 @@ export default function ViewCourses() {
         </button>
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
-        <CoursesItem />
+        {handleViewCourses()}
       </div>
       <div className={`${styles["view__shape-icon"]} hidden md:block lg:block`}>
         <img className="animate-bounce" src={CoursesShapeIcon} alt="" />

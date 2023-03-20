@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { message } from "antd";
-import {
-  coursesListRegisterStorage,
-  coursesListWishListLocalStorage,
-} from "./../Service/localService";
+import { coursesListRegisterStorage } from "./../Service/localService";
 
 const initialState = {
   coursesListWishList: [],
@@ -17,7 +14,6 @@ const coursesSlice = createSlice({
     // danh sách khóa học yêu thích
     setCoursesListWishList: (state, action) => {
       let newCoursesListWishList = [...state.coursesListWishList];
-
       const index = newCoursesListWishList.findIndex((course, index) => {
         return course.maKhoaHoc === action.payload.maKhoaHoc;
       });
@@ -30,23 +26,6 @@ const coursesSlice = createSlice({
         newCoursesListWishList.splice(index, 1);
         message.success("Remove From WishList");
         state.coursesListWishList = newCoursesListWishList;
-      }
-    },
-    setCoursesListAddToCart: (state, action) => {
-      let newCoursesListAddToCart = [...state.coursesListAddToCart];
-
-      const index = newCoursesListAddToCart.findIndex((course) => {
-        return course.maKhoaHoc === action.payload.maKhoaHoc;
-      });
-      if (index == -1) {
-        let newCourseAdd = { ...action.payload };
-        newCoursesListAddToCart.push(newCourseAdd);
-        message.success("Add To Cart Success");
-        state.coursesListAddToCart = newCoursesListAddToCart;
-      } else {
-        newCoursesListAddToCart.splice(index, 1);
-        message.success("Remove To Cart Success");
-        state.coursesListAddToCart = newCoursesListAddToCart;
       }
     },
     // đăng kí ghi danh , danh sách khóa học
@@ -86,7 +65,6 @@ const coursesSlice = createSlice({
 
 export const {
   setCoursesListWishList,
-  setCoursesListAddToCart,
   setRegisterCoursesList,
   setDeleteCoursesListRegister,
 } = coursesSlice.actions;
