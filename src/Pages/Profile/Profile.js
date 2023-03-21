@@ -25,6 +25,13 @@ export default function Profile() {
       maLoaiNguoiDung: user.maLoaiNguoiDung,
       maNhom: "GP01",
     },
+    validationSchema: Yup.object({
+      taiKhoan: Yup.string().required(""),
+      matKhau: Yup.string().required(""),
+      hoTen: Yup.string().required(""),
+      Email: Yup.string().required(""),
+      soDT: Yup.string().required(""),
+    }),
     onSubmit: (values) => {
       putUserInfor(values)
         .then((res) => {

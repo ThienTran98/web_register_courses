@@ -11,6 +11,7 @@ import InforPage from "./Pages/InforPage/InforPage";
 import "animate.css";
 import CheckOutPage from "./Pages/CheckOutPage/CheckOutPage";
 import Profile from "./Pages/Profile/Profile";
+import Search from "./Pages/Search/Search";
 
 function App() {
   return (
@@ -78,6 +79,14 @@ function App() {
             element={
               <LayoutDefault>
                 <Profile />
+              </LayoutDefault>
+            }
+          />
+          <Route
+            path="/search/keyword/:values"
+            element={
+              <LayoutDefault>
+                <Search />
               </LayoutDefault>
             }
           />

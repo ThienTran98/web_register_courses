@@ -1,0 +1,27 @@
+@import "../../styles/variable.scss";
+
+.search {
+  background-color: $bg-features;
+}
+
+.search img {
+  position: absolute;
+  content: "";
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.search__text-result h3 {
+  color: $text-secondary;
+  font-weight: 600;
+  font-size: 20px;
+}
+.search__text-result h3 span {
+  color: $color-font-10;
+  font-size: 20px;
+}
+
+.search__text--content h4 {
+  color: $color-font-6;
+  font-weight: 300;
+}

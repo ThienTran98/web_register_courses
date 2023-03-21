@@ -1,7 +1,7 @@
 import { faArrowRight, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import bannerImg from "../../../asset/img/banner-img-1.png";
 import client1 from "../../../asset/img/client-1.jpg";
 import client2 from "../../../asset/img/client-2.jpg";
@@ -9,6 +9,15 @@ import client3 from "../../../asset/img/client-3.jpg";
 import styles from "./Banner.module.scss";
 
 export default function BannerTabletAndMobile() {
+  const [valueSearch, setValueSearch] = useState("");
+  const navigate = useNavigate();
+  const handleSearchValues = (e) => {
+    if (valueSearch.length !== 0) {
+      navigate(`/search/keyword/${valueSearch}`);
+    } else {
+      e.preventDefault();
+    }
+  };
   return (
     <div className={`${styles["homePage__banner"]} pt-[60px] pb-[60px]`}>
       <div className={`${styles["container-banner"]}`}>
@@ -42,8 +51,12 @@ export default function BannerTabletAndMobile() {
                   className={`${styles["form-control"]} grow`}
                   placeholder="Search Courses"
                   name="search"
+                  onChange={(e) => {
+                    setValueSearch(e.target.value);
+                  }}
                 />
                 <button
+                  onClick={handleSearchValues}
                   className={`${styles["default-btn"]} flex items-center`}
                 >
                   Search Now

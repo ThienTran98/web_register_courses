@@ -1,7 +1,7 @@
 import { faArrowRight, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import bannerImg from "../../../asset/img/banner-img-1.png";
 import client1 from "../../../asset/img/client-1.jpg";
 import client2 from "../../../asset/img/client-2.jpg";
@@ -13,6 +13,16 @@ import shape3 from "../../../asset/img/shape-3.svg";
 import styles from "./Banner.module.scss";
 
 export default function BannerDesktop() {
+  // tạo biến và truyền vào nút search
+  const [valueSearch, setValueSearch] = useState("");
+  const navigate = useNavigate();
+  const handleSearchValues = (e) => {
+    if (valueSearch.length !== 0) {
+      navigate(`/search/keyword/${valueSearch}`);
+    } else {
+      e.preventDefault();
+    }
+  };
   return (
     <div className={`${styles["homePage__banner"]} pt-[166px] pb-[185px]`}>
       <div className={`${styles["container-banner"]}`}>
@@ -46,8 +56,12 @@ export default function BannerDesktop() {
                   className={`${styles["form-control"]} grow`}
                   placeholder="Search Courses"
                   name="search"
+                  onChange={(e) => {
+                    setValueSearch(e.target.value);
+                  }}
                 />
                 <button
+                  onClick={handleSearchValues}
                   className={`${styles["default-btn"]} flex items-center`}
                 >
                   Search Now

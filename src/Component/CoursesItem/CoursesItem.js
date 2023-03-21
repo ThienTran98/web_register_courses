@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./CoursesItem.module.scss";
 import { getCoursesList } from "./../../Service/coursesService";
 import ImageCourse from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
-import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setCoursesListAddToCart,
   setCoursesListWishList,
@@ -13,9 +13,17 @@ import {
 
 export default function CoursesItem({ course }) {
   const dispatch = useDispatch();
+  const user = useSelector((state) => {
+    return state.userSlice.user;
+  });
+  const navigate = useNavigate();
   // dispatch courses wish list
   const handleDispatchCourseWishList = (course) => {
-    dispatch(setCoursesListWishList(course));
+    if (user) {
+      dispatch(setCoursesListWishList(course));
+    } else {
+      navigate("/login");
+    }
   };
   return (
     <div key={course?.maKhoaHoc} className="px-3 md:px-0 lg:px-0">
