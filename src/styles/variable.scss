@@ -7,6 +7,11 @@ $bg-banner-img: linear-gradient(
   hsla(0, 0%, 100%, 0.4) 11.41%,
   hsla(0, 0%, 100%, 0) 90.25%
 );
+$bg-spinner: linear-gradient(
+  147.92deg,
+  hsla(0, 0%, 100%, 0.6) 11.41%,
+  hsla(0, 0%, 100%, 0.3) 90.25%
+);
 
 $bg-input: hsla(0, 0%, 100%, 0.3);
 $bg-btn: linear-gradient(#f0bf79, #f0bf79);

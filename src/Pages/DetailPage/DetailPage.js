@@ -26,7 +26,6 @@ export default function DetailPage() {
   const param = useParams();
   const [show, setShow] = useState(false);
   const [detail, setDetail] = useState();
-  console.log("detail", detail);
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => {

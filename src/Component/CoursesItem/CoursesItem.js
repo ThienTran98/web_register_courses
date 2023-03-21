@@ -54,6 +54,8 @@ export default function CoursesItem({ course }) {
             timer: 1000,
           });
         });
+    } else {
+      navigate("/login");
     }
   };
   return (

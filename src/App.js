@@ -12,10 +12,12 @@ import "animate.css";
 import CheckOutPage from "./Pages/CheckOutPage/CheckOutPage";
 import Profile from "./Pages/Profile/Profile";
 import Search from "./Pages/Search/Search";
+import Spinner from "./Component/Spinner/Spinner";
 
 function App() {
   return (
     <div>
+      <Spinner />
       <BrowserRouter>
         <Routes>
           <Route
