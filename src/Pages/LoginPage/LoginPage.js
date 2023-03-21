@@ -42,7 +42,6 @@ export default function LoginPage() {
           }, 1000);
         })
         .catch((err) => {
-          console.log(err);
           Toast.fire({
             confirmButtonColor: "#49ae88",
             color: "#3098b1",

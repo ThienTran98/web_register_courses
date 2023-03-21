@@ -13,9 +13,7 @@ export default function Search() {
       .then((res) => {
         setListCourses(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
   // danh sách khóa học tìm dc
   const listSearchCoursesValues = listCourses.filter((course) => {

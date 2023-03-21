@@ -16,9 +16,7 @@ export default function HomePage() {
       .then((res) => {
         setListCourses(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
   return (
     <div>

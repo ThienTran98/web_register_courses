@@ -7,7 +7,6 @@ export default function Spinner() {
   const isLoading = useSelector((state) => {
     return state.spinnerSlice.isLoading;
   });
-  console.log(isLoading);
   return isLoading ? (
     <div className={`${styles["spinner"]}`}>
       <ClipLoader color="#36d7b7" />

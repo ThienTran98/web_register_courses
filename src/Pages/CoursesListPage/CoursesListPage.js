@@ -24,9 +24,7 @@ export default function CoursesListPage() {
       .then((res) => {
         setListCourses(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, [currentPage]);
   const handleRenderListCourses = () => {
     return listCourses?.items.map((course, index) => {

@@ -14,9 +14,6 @@ export default function InforPage() {
   const courseWishList = useSelector((state) => {
     return state.coursesSlice.coursesListWishList;
   });
-
-  console.log(courseWishList);
-  console.log(courseWishList.length);
   const renderCoursesWishList = () => {
     return courseWishList.map((course) => {
       return (
