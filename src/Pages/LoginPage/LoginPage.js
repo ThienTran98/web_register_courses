@@ -46,7 +46,7 @@ export default function LoginPage() {
             confirmButtonColor: "#49ae88",
             color: "#3098b1",
             icon: "error",
-            title: `${err.response.data} xin vui lòng thử lại`,
+            title: `${err.response.data} please try again`,
           });
         });
     },
