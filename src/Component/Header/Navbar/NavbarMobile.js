@@ -18,6 +18,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logoIcon from "../../../asset/img/logo.png";
 import { setUserLogOut } from "../../../redux-toolkit/userSlice";
+import {
+  coursesListRegisterStorage,
+  userLocalStorage,
+} from "../../../Service/localService";
 import styles from "./navbar.module.scss";
 
 export default function NavbarMobile() {
@@ -31,6 +35,8 @@ export default function NavbarMobile() {
   // Log Out
   const handleLogOut = () => {
     dispatch(setUserLogOut(null));
+    userLocalStorage.remove();
+    coursesListRegisterStorage.remove();
     setShowInfor(false);
     Swal.fire({
       position: "center",
@@ -41,7 +47,7 @@ export default function NavbarMobile() {
     });
     setTimeout(() => {
       navigation("/login");
-      // window.location.reload();
+      window.location.reload();
       setShow(false);
     }, 1000);
   };

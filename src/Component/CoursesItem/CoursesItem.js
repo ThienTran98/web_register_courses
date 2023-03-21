@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./CoursesItem.module.scss";
-import { getCoursesList } from "./../../Service/coursesService";
+import {
+  getCoursesList,
+  postRegisterCourses,
+} from "./../../Service/coursesService";
 import ImageCourse from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setCoursesListAddToCart,
+  setCourseAddToCart,
   setCoursesListWishList,
 } from "../../redux-toolkit/coursesSlice";
+import Swal from "sweetalert2";
 
 export default function CoursesItem({ course }) {
   const dispatch = useDispatch();
@@ -23,6 +27,33 @@ export default function CoursesItem({ course }) {
       dispatch(setCoursesListWishList(course));
     } else {
       navigate("/login");
+    }
+  };
+  const handleAddToCart = () => {
+    if (user) {
+      postRegisterCourses({
+        maKhoaHoc: course.maKhoaHoc,
+        taiKhoan: user.taiKhoan,
+      })
+        .then((res) => {
+          dispatch(setCourseAddToCart(course));
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Added course to cart",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+        })
+        .catch((err) => {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "The course is already in your cart",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+        });
     }
   };
   return (
@@ -101,9 +132,7 @@ export default function CoursesItem({ course }) {
             <h4 className="flex items-center justify-between mt-4 mb-8">
               Like :
               <FontAwesomeIcon
-                onClick={() => {
-                  handleDispatchCourseWishList(course);
-                }}
+                onClick={handleDispatchCourseWishList}
                 className={`text-2xl flex items-center justify-center ${styles["heart__icon"]}`}
                 icon={faHeart}
               />
@@ -111,7 +140,10 @@ export default function CoursesItem({ course }) {
             <div
               className={`flex items-center justify-between ${styles["item__courses-footer"]}`}
             >
-              <button className={`${styles["courses__btn"]}`}>
+              <button
+                onClick={handleAddToCart}
+                className={`${styles["courses__btn"]}`}
+              >
                 Add To Cart
               </button>
               <button className={`${styles["courses__btn"]}`}>

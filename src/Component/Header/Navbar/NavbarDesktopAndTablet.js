@@ -20,6 +20,10 @@ import logoIcon from "../../../asset/img/logo.png";
 
 import styles from "./navbar.module.scss";
 import Swal from "sweetalert2";
+import {
+  coursesListRegisterStorage,
+  userLocalStorage,
+} from "../../../Service/localService";
 
 export default function NavbarDesktopAndTablet() {
   const [show, setShow] = useState(false);
@@ -32,6 +36,9 @@ export default function NavbarDesktopAndTablet() {
   // Log Out
   const handleLogOut = () => {
     dispatch(setUserLogOut(null));
+    userLocalStorage.remove();
+    coursesListRegisterStorage.remove();
+
     setShowInfor(false);
     Swal.fire({
       position: "center",
