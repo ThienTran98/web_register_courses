@@ -106,8 +106,8 @@ export default function NavbarMobile() {
             </div>
           </div>
           <ul className="flex justify-between items-center">
-            <li className="px-8 md:mr-8 lg:mr-8 lg:border-x-zinc-400  lg:border-y-transparent text-3xl lg:text-2xl lg:border-2">
-              <NavLink to="/check-out" className="relative">
+            <li className="px-8 md:mr-8 lg:mr-8 lg:border-x-zinc-400  lg:border-y-transparent text-3xl lg:text-2xl lg:border-2 relatives">
+              <NavLink to="/check-out" className="">
                 <FontAwesomeIcon
                   className="text-teal-600 block"
                   icon={faCartShopping}
