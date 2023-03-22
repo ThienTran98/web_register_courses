@@ -15,7 +15,11 @@ import {
 } from "../../redux-toolkit/coursesSlice";
 import Swal from "sweetalert2";
 
+import ImageError from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
+import ImageError1 from "../../asset/img/r1ysgphohxnzf1t5a4m0.jpg";
+
 export default function CoursesItem({ course }) {
+  const [fallbackImage, setFallbackImage] = useState("");
   const dispatch = useDispatch();
   const user = useSelector((state) => {
     return state.userSlice.user;
@@ -28,6 +32,11 @@ export default function CoursesItem({ course }) {
     } else {
       navigate("/login");
     }
+  };
+
+  // set ảnh lỗi sẽ loạt vào
+  const handleErrorImage = () => {
+    setFallbackImage(ImageError || ImageError1);
   };
   const handleAddToCart = () => {
     if (user) {
@@ -66,8 +75,9 @@ export default function CoursesItem({ course }) {
         <a href="#">
           <img
             className="w-full h-60 object-cover"
-            src={course?.hinhAnh === null ? ImageCourse : course?.hinhAnh}
+            src={fallbackImage || course?.hinhAnh}
             alt="product image"
+            onError={handleErrorImage}
           />
         </a>
         <div className="px-5 pb-5">
