@@ -17,6 +17,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logoIcon from "../../../asset/img/logo.png";
+import {
+  setCourseAddToCart,
+  setRegisterCoursesList,
+} from "../../../redux-toolkit/coursesSlice";
 import { setUserLogOut } from "../../../redux-toolkit/userSlice";
 import {
   coursesListRegisterStorage,
@@ -45,11 +49,11 @@ export default function NavbarMobile() {
       showConfirmButton: false,
       timer: 1000,
     });
+    setShow(false);
+    navigation("/login");
     setTimeout(() => {
-      navigation("/login");
       window.location.reload();
-      setShow(false);
-    }, 1000);
+    }, 500);
   };
 
   const listRegisterCourses = useSelector((state) => {

@@ -32,7 +32,7 @@ export default function CoursesItem({ course }) {
   const handleAddToCart = () => {
     if (user) {
       postRegisterCourses({
-        maKhoaHoc: course.maKhoaHoc,
+        maKhoaHoc: course?.maKhoaHoc,
         taiKhoan: user.taiKhoan,
       })
         .then((res) => {

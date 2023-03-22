@@ -24,6 +24,10 @@ import {
   coursesListRegisterStorage,
   userLocalStorage,
 } from "../../../Service/localService";
+import {
+  setCourseAddToCart,
+  setRegisterCoursesList,
+} from "../../../redux-toolkit/coursesSlice";
 
 export default function NavbarDesktopAndTablet() {
   const [show, setShow] = useState(false);
@@ -38,7 +42,6 @@ export default function NavbarDesktopAndTablet() {
     dispatch(setUserLogOut(null));
     userLocalStorage.remove();
     coursesListRegisterStorage.remove();
-
     setShowInfor(false);
     Swal.fire({
       position: "center",
@@ -47,9 +50,10 @@ export default function NavbarDesktopAndTablet() {
       showConfirmButton: false,
       timer: 1000,
     });
+    navigation("/login");
     setTimeout(() => {
-      navigation("/login");
-    }, 1500);
+      window.location.reload();
+    }, 500);
   };
   //
   const listRegisterCourses = useSelector((state) => {
