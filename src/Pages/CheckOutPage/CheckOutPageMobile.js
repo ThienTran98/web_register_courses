@@ -106,9 +106,9 @@ export default function CheckOutPageMobile() {
       showConfirmButton: false,
       timer: 1000,
     });
-    coursesListRegisterStorage.remove();
     setTimeout(() => {
-      navigate("/");
+      coursesListRegisterStorage.remove();
+      window.location.reload();
     }, 1500);
   };
   // render cart or k có sản phẩm
