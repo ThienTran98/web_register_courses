@@ -23,8 +23,8 @@ html *::-webkit-scrollbar {
 }
 html *::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  /* background-color: rgba(22, 24, 35, 0.06); */
-  background-image: linear-gradient(133.65deg, #6cc17e 2.24%, #098b99);
+  background-color: rgba(22, 24, 35, 0.08);
+  /* background-image: linear-gradient(133.65deg, #6cc17e 2.24%, #098b99); */
 }
 html *::-webkit-scrollbar-track {
   border-radius: 0;
