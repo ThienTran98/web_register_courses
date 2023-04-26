@@ -144,7 +144,9 @@ export default function CoursesItem({ course }) {
             <h4 className="flex items-center justify-between mt-4 mb-8">
               Like :
               <FontAwesomeIcon
-                onClick={handleDispatchCourseWishList}
+                onClick={() => {
+                  handleDispatchCourseWishList(course);
+                }}
                 className={`text-2xl flex items-center justify-center ${styles["heart__icon"]}`}
                 icon={faHeart}
               />
