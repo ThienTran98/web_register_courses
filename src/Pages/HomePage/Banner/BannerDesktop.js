@@ -17,7 +17,7 @@ export default function BannerDesktop() {
   const [valueSearch, setValueSearch] = useState("");
   const navigate = useNavigate();
   const handleSearchValues = (e) => {
-    if (valueSearch.length.trim() !== 0) {
+    if (valueSearch.length !== 0) {
       navigate(`/search/keyword/${valueSearch}`);
     } else {
       e.preventDefault();
