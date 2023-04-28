@@ -12,7 +12,7 @@ export default function BannerTabletAndMobile() {
   const [valueSearch, setValueSearch] = useState("");
   const navigate = useNavigate();
   const handleSearchValues = (e) => {
-    if (valueSearch.length !== 0) {
+    if (valueSearch.trim().length !== 0) {
       navigate(`/search/keyword/${valueSearch}`);
     } else {
       e.preventDefault();
