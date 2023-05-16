@@ -9,7 +9,7 @@ export default function NotFoundPage() {
     navigation(-1);
   };
   useEffect(() => {
-    document.title = "Course/NotFoundPage";
+    document.title = "NotFoundPage";
   }, []);
   return (
     <main className="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">

@@ -18,7 +18,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
-    document.title = "Course/Login";
+    document.title = "Login";
   }, []);
   const formik = useFormik({
     initialValues: {

@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 export default function CheckOutPage() {
   useEffect(() => {
-    document.title = "Courses/CheckOut";
+    document.title = "CheckOut";
   }, []);
   return (
     <>

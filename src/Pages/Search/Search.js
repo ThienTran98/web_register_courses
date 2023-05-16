@@ -16,7 +16,7 @@ export default function Search() {
       .catch((err) => {});
   }, []);
   useEffect(() => {
-    document.title = "Course/Search";
+    document.title = "Search";
   }, []);
   // danh sách khóa học tìm dc
   const listSearchCoursesValues = listCourses.filter((course) => {

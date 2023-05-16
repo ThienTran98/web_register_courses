@@ -39,7 +39,7 @@ export default function DetailPage() {
       .catch((err) => {});
   }, [param.id]);
   useEffect(() => {
-    document.title = "Courses/CourseList/Detail-Course";
+    document.title = "CourseList/Detail-Course";
   }, []);
   const handeClickButton = (e) => {
     e.preventDefault();

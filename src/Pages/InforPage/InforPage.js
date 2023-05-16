@@ -15,7 +15,7 @@ export default function InforPage() {
     return state.coursesSlice.coursesListWishList;
   });
   useEffect(() => {
-    document.title = "Course/Informational";
+    document.title = "Information";
   }, []);
   const renderCoursesWishList = () => {
     return courseWishList.map((course) => {

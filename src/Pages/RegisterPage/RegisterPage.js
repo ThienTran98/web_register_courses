@@ -71,7 +71,7 @@ export default function RegisterPage() {
     },
   });
   useEffect(() => {
-    document.title = "Course/Register";
+    document.title = "Register";
   }, []);
   return (
     //

@@ -19,7 +19,7 @@ export default function HomePage() {
       .catch((err) => {});
   }, []);
   useEffect(() => {
-    document.title = "Courses/HomePage";
+    document.title = "Courses";
   }, []);
   return (
     <div>

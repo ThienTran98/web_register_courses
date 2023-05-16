@@ -13,7 +13,7 @@ export default function Profile() {
     return state.userSlice.user;
   });
   useEffect(() => {
-    document.title = "Course/Profile";
+    document.title = "Profile";
   }, []);
   const handleResetForm = () => {
     document.querySelector(".form-submit").reset();
