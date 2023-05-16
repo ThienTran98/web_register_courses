@@ -5,6 +5,7 @@ import styles from "./registerPage.module.scss";
 import * as Yup from "yup";
 import { postRegister } from "../../Service/userService";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 export default function RegisterPage() {
   const regexNumber = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$/;
@@ -69,6 +70,9 @@ export default function RegisterPage() {
         });
     },
   });
+  useEffect(() => {
+    document.title = "Course/Register";
+  }, []);
   return (
     //
     <section className=" bg-gray-50">

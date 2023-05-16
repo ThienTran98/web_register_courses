@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   faFaceSadCry,
   faHeart,
@@ -14,6 +14,9 @@ export default function InforPage() {
   const courseWishList = useSelector((state) => {
     return state.coursesSlice.coursesListWishList;
   });
+  useEffect(() => {
+    document.title = "Course/Informational";
+  }, []);
   const renderCoursesWishList = () => {
     return courseWishList.map((course) => {
       return (

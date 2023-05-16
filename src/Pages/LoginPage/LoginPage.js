@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -17,6 +17,9 @@ export default function LoginPage() {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useEffect(() => {
+    document.title = "Course/Login";
+  }, []);
   const formik = useFormik({
     initialValues: {
       taiKhoan: "",

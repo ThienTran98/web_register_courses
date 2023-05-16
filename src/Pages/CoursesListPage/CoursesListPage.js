@@ -20,6 +20,9 @@ export default function CoursesListPage() {
     setCurrentPage(pageNumber);
   };
   useEffect(() => {
+    document.title = "Courses/CoursesListPage";
+  }, []);
+  useEffect(() => {
     getCourseListPagination(currentPage)
       .then((res) => {
         setListCourses(res.data);

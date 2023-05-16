@@ -29,8 +29,8 @@ base_URL.interceptors.request.use(
 // Add a response interceptor
 base_URL.interceptors.response.use(
   function (response) {
+    // console.log("2", response);
     store.dispatch(setLoadingOff());
-
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
     return response;

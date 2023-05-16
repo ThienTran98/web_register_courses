@@ -6,12 +6,15 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { putUserInfor } from "../../Service/userService";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 export default function Profile() {
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
-
+  useEffect(() => {
+    document.title = "Course/Profile";
+  }, []);
   const handleResetForm = () => {
     document.querySelector(".form-submit").reset();
   };

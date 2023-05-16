@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export default function NotFoundPage() {
@@ -7,6 +8,9 @@ export default function NotFoundPage() {
   const handleGoBackPage = () => {
     navigation(-1);
   };
+  useEffect(() => {
+    document.title = "Course/NotFoundPage";
+  }, []);
   return (
     <main className="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">
       <h1 className="text-9xl font-extrabold text-white tracking-widest">

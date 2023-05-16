@@ -18,6 +18,9 @@ export default function HomePage() {
       })
       .catch((err) => {});
   }, []);
+  useEffect(() => {
+    document.title = "Courses/HomePage";
+  }, []);
   return (
     <div>
       <Banner />
