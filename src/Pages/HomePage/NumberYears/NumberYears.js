@@ -41,6 +41,7 @@ export default function NumberYears() {
         "
             >
               <CountUp delay={3000} end={1985} enableScrollSpy />
+              <span className="ml-2">+</span>
             </h3>
             <h4 className={`${styles["number__title"]}`}>Publish</h4>
           </div>
@@ -48,6 +49,7 @@ export default function NumberYears() {
             <img src={logo2} alt="logo" />
             <h3 className="text-3xl font-bold my-3 transition duration-300 ease-in-out">
               <CountUp delay={3000} end={120} enableScrollSpy />
+              <span className="ml-2">+</span>
             </h3>
             <h4 className={`${styles["number__title"]}`}>University</h4>
           </div>
@@ -55,13 +57,15 @@ export default function NumberYears() {
             <img src={logo3} alt="logo" />
             <h3 className="text-3xl font-bold my-3 transition duration-300 ease-in-out">
               <CountUp delay={3000} end={100000} enableScrollSpy />
+              <span className="ml-2">+</span>
             </h3>
             <h4 className={`${styles["number__title"]}`}>Student</h4>
           </div>
           <div className="flex flex-col items-center">
             <img src={logo4} alt="logo" />
             <h3 className="text-3xl font-bold my-3 transition duration-300 ease-in-out">
-              <CountUp delay={3000} end={50000} enableScrollSpy />
+              <CountUp delay={3000} end={10000} enableScrollSpy />
+              <span className="ml-2">+</span>
             </h3>
             <h4 className={`${styles["number__title"]}`}>Partner</h4>
           </div>
@@ -69,6 +73,7 @@ export default function NumberYears() {
             <img src={logo5} alt="logo" />
             <h3 className="text-3xl font-bold my-3 transition duration-300 ease-in-out">
               <CountUp delay={3000} end={400} enableScrollSpy />
+              <span className="ml-2">+</span>
             </h3>
             <h4 className={`${styles["number__title"]}`}>Courses</h4>
           </div>
