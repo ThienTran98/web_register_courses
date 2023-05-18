@@ -4,10 +4,30 @@ import logo2 from "../../../asset/img/fdsav9xalgcj6mjqs1rn.png";
 import logo3 from "../../../asset/img/fw2vmnixtr8rwhb8jga8.png";
 import logo4 from "../../../asset/img/sbwdmgrtzl0ttu3ntwt1.png";
 import logo5 from "../../../asset/img/xfdt2sondensxindk4xf.png";
-import CountUp from "react-countup";
+import CountUp, { useCountUp } from "react-countup";
 import styles from "./NumberYears.module.scss";
+import { useState } from "react";
 
 export default function NumberYears() {
+  useCountUp({
+    ref: "counter",
+    end: 1234567,
+    enableScrollSpy: true,
+    scrollSpyDelay: 1000,
+  });
+  const [loading, setLoading] = useState(false);
+
+  const onStart = () => {
+    setLoading(true);
+  };
+
+  const onEnd = () => {
+    setLoading(false);
+  };
+
+  const containerProps = {
+    "aria-busy": loading,
+  };
   return (
     <div className="hidden md:block lg:block">
       <div
@@ -20,65 +40,35 @@ export default function NumberYears() {
               className="text-3xl font-bold my-3 transition duration-300 ease-in-out
         "
             >
-              <CountUp start={0} end={1985} duration={10}>
-                {({ countUpRef }) => (
-                  <div>
-                    <span ref={countUpRef} />
-                  </div>
-                )}
-              </CountUp>
+              <CountUp delay={3000} end={1985} enableScrollSpy />
             </h3>
             <h4 className={`${styles["number__title"]}`}>Publish</h4>
           </div>
           <div className="flex flex-col items-center">
             <img src={logo2} alt="logo" />
             <h3 className="text-3xl font-bold my-3 transition duration-300 ease-in-out">
-              <CountUp start={0} end={200} duration={10}>
-                {({ countUpRef }) => (
-                  <div>
-                    <span ref={countUpRef} />
-                  </div>
-                )}
-              </CountUp>
+              <CountUp delay={3000} end={120} enableScrollSpy />
             </h3>
             <h4 className={`${styles["number__title"]}`}>University</h4>
           </div>
           <div className="flex flex-col items-center">
             <img src={logo3} alt="logo" />
             <h3 className="text-3xl font-bold my-3 transition duration-300 ease-in-out">
-              <CountUp start={0} end={20222} duration={10}>
-                {({ countUpRef }) => (
-                  <div>
-                    <span ref={countUpRef} />
-                  </div>
-                )}
-              </CountUp>
+              <CountUp delay={3000} end={100000} enableScrollSpy />
             </h3>
             <h4 className={`${styles["number__title"]}`}>Student</h4>
           </div>
           <div className="flex flex-col items-center">
             <img src={logo4} alt="logo" />
             <h3 className="text-3xl font-bold my-3 transition duration-300 ease-in-out">
-              <CountUp start={0} end={5000} duration={10}>
-                {({ countUpRef }) => (
-                  <div>
-                    <span ref={countUpRef} />
-                  </div>
-                )}
-              </CountUp>
+              <CountUp delay={3000} end={50000} enableScrollSpy />
             </h3>
             <h4 className={`${styles["number__title"]}`}>Partner</h4>
           </div>
           <div className="flex flex-col items-center">
             <img src={logo5} alt="logo" />
             <h3 className="text-3xl font-bold my-3 transition duration-300 ease-in-out">
-              <CountUp start={0} end={300} duration={10}>
-                {({ countUpRef }) => (
-                  <div>
-                    <span ref={countUpRef} />
-                  </div>
-                )}
-              </CountUp>
+              <CountUp delay={3000} end={400} enableScrollSpy />
             </h3>
             <h4 className={`${styles["number__title"]}`}>Courses</h4>
           </div>
