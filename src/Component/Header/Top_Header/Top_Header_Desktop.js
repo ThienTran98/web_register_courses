@@ -3,8 +3,13 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import styles from "./Top_Header.module.scss";
+import { useSelector } from "react-redux";
 
 export default function Top_Header_Desktop() {
+  const user = useSelector((state) => {
+    return state.userSlice.user;
+  });
+
   return (
     <div className={`${styles["bg__top-header"]} py-2`}>
       <div className={`container ${styles["font-size-15"]} px-8 mx-auto `}>
@@ -27,17 +32,31 @@ export default function Top_Header_Desktop() {
             <ul className=" font-semibold tracking-tighter flex">
               <li>Become An Instructor</li>
               <li className={`${styles["li-item"]}`}></li>
-              <li className="flex items-center">
-                <NavLink
-                  to="/login"
-                  className="hover:no-underline hover:text-white hover:opacity-70"
-                >
-                  <i className="mr-2">
-                    <FontAwesomeIcon icon={faArrowRight} />
-                  </i>
-                  Sign in
-                </NavLink>
-              </li>
+              {!user ? (
+                <li className="flex items-center">
+                  <NavLink
+                    to="/login"
+                    className="hover:no-underline hover:text-white hover:opacity-70"
+                  >
+                    <i className="mr-2">
+                      <FontAwesomeIcon icon={faArrowRight} />
+                    </i>
+                    Sign in
+                  </NavLink>
+                </li>
+              ) : (
+                <li className="flex items-center">
+                  <a
+                    href="https://www.facebook.com/"
+                    className="hover:no-underline hover:text-white hover:opacity-70"
+                  >
+                    <i className="mr-2">
+                      <FontAwesomeIcon icon={faArrowRight} />
+                    </i>
+                    Facebook
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

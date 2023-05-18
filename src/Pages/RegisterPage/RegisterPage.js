@@ -187,7 +187,7 @@ export default function RegisterPage() {
                   Phone Number
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   name="soDT"
                   id="soDT"
                   onChange={formik.handleChange}
