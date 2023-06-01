@@ -24,7 +24,7 @@ export default function OurFeatures() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className={`px-0 lg:px-3 md:px-3 mb-[30px] md:mb-0 lg:mb-0`}>
             <div
-              className={`p-[38px] flex flex-col items-center justify-center shadow-xl ${styles["features__item"]}`}
+              className={`p-[38px] flex flex-col items-center justify-center shadow-xl ${styles["features__item"]} ease-out duration-300 hover:translate-y-[-10px]`}
             >
               <img src={feature1} alt="" />
               <h2 className="mt-[33px] mb-[20px]">Expert-Led Video Courses</h2>
@@ -36,7 +36,7 @@ export default function OurFeatures() {
           </div>
           <div className={`px-0 lg:px-3 md:px-3 mb-[30px] md:mb-0 lg:mb-0`}>
             <div
-              className={`p-[38px] flex flex-col items-center justify-center shadow-xl ${styles["features__item"]}`}
+              className={`p-[38px] flex flex-col items-center justify-center shadow-xl ${styles["features__item"]} ease-out duration-300 hover:translate-y-[-10px]`}
             >
               <img src={feature2} alt="" />
               <h2 className="mt-[33px] mb-[20px]">Expert-Led Video Courses</h2>
@@ -48,7 +48,7 @@ export default function OurFeatures() {
           </div>
           <div className={`px-0 lg:px-3 md:px-3 mb-[30px] md:mb-0 lg:mb-0`}>
             <div
-              className={`p-[38px] flex flex-col items-center justify-center shadow-xl ${styles["features__item"]}`}
+              className={`p-[38px] flex flex-col items-center justify-center shadow-xl ${styles["features__item"]} ease-out duration-300 hover:translate-y-[-10px]`}
             >
               <img src={feature3} alt="" />
               <h2 className="mt-[33px] mb-[20px]">Expert-Led Video Courses</h2>
@@ -60,7 +60,7 @@ export default function OurFeatures() {
           </div>
           <div className={`px-0 lg:px-3 md:px-3 mb-[30px] md:mb-0 lg:mb-0`}>
             <div
-              className={`p-[38px] flex flex-col items-center justify-center shadow-xl ${styles["features__item"]}`}
+              className={`p-[38px] flex flex-col items-center justify-center shadow-xl ${styles["features__item"]} ease-out duration-300 hover:translate-y-[-10px]`}
             >
               <img src={feature4} alt="" />
               <h2 className="mt-[33px] mb-[20px]">Expert-Led Video Courses</h2>

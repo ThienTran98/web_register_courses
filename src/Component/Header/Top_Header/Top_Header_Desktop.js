@@ -9,7 +9,6 @@ export default function Top_Header_Desktop() {
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
-
   return (
     <div className={`${styles["bg__top-header"]} py-2`}>
       <div className={`container ${styles["font-size-15"]} px-8 mx-auto `}>
