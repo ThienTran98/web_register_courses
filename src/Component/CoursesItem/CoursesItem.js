@@ -84,11 +84,11 @@ export default function CoursesItem({ course }) {
   return (
     <div
       key={course?.maKhoaHoc}
-      className="px-3 md:px-0 lg:px-0 shadow-2xl rounded-lg"
+      className="px-3 md:px-0 lg:px-0 lg:shadow-2xl md:shadow-2xl shadow-none rounded-lg "
     >
       <SkeletonTheme baseColor="#fff" highlightColor="#f3f3f3">
         {loading ? (
-          <Skeleton className="w-[352px h-[442px]" />
+          <Skeleton className="lg:w-[352px] lg:h-[442px] md:w-[352px] md:h-[442px] w-[322px] h-[442px]" />
         ) : (
           <div
             className={`w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow relative ${styles["courses_item"]} overflow-hidden`}
