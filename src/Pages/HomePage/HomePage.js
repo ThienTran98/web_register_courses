@@ -21,17 +21,11 @@ const NumberYears = lazy(() => import("./NumberYears/NumberYears"));
 export default function HomePage() {
   const [listCourses, setListCourses] = useState([]);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      getCoursesList()
-        .then((res) => {
-          setListCourses(res.data);
-        })
-        .catch((err) => {});
-    }, 2000);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    getCoursesList()
+      .then((res) => {
+        setListCourses(res.data);
+      })
+      .catch((err) => {});
   }, []);
   useEffect(() => {
     document.title = "Courses";
