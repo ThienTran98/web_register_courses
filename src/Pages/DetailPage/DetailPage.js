@@ -22,10 +22,14 @@ import {
 } from "../../Service/coursesService";
 import styles from "./DetailPage.module.scss";
 
+import ImageError from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
+
 export default function DetailPage() {
   const param = useParams();
   const [show, setShow] = useState(false);
-  const [detail, setDetail] = useState();
+  const [detail, setDetail] = useState(null);
+  const [fallbackImage, setFallbackImage] = useState("");
+
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => {
@@ -41,7 +45,7 @@ export default function DetailPage() {
   useEffect(() => {
     document.title = "CourseList/Detail-Course";
   }, []);
-  const handeClickButton = (e) => {
+  const handleClickButton = (e) => {
     e.preventDefault();
   };
   const handleRegisterCourses = () => {
@@ -82,7 +86,9 @@ export default function DetailPage() {
       navigation("/login");
     }
   };
-
+  const handleErrorImage = () => {
+    setFallbackImage(ImageError);
+  };
   return (
     <div>
       <div className="bg-gray-200">
@@ -426,9 +432,10 @@ export default function DetailPage() {
             <div className="pb-3 shadow-xl">
               <div>
                 <img
-                  src={detail?.hinhAnh}
+                  src={fallbackImage || detail?.hinhAnh}
                   className="w-full h-72 object-cover"
                   alt=""
+                  onError={handleErrorImage}
                 />
               </div>
               <div className="mt-3 flex items-center lg:justify-between md:justify-center lg:px-2">
@@ -528,7 +535,7 @@ export default function DetailPage() {
                       placeholder="Enter discount code"
                     />
                     <button
-                      onClick={handeClickButton}
+                      onClick={handleClickButton}
                       className={`${styles["coupon"]} lg:px-2 lg:py-3 md:py-2 md:px-1 py-2 px-1 focus:outline-transparent hover:text-white`}
                     >
                       Apply
