@@ -8,6 +8,7 @@ import React, { useEffect, useState, Suspense, lazy } from "react";
 // import SayAboutUs from "./SayAboutUs/SayAboutUs";
 // import NumberYears from "./NumberYears/NumberYears";
 import { getCoursesList } from "../../Service/coursesService";
+import Skeleton from "react-loading-skeleton";
 
 const Banner = lazy(() => import("./Banner/Banner"));
 const PopularCourses = lazy(() => import("./PopularCourses/PopularCourses"));
@@ -27,7 +28,7 @@ export default function HomePage() {
           setListCourses(res.data);
         })
         .catch((err) => {});
-    }, 1000);
+    }, 500);
     return () => {
       clearTimeout(timeId);
     };
@@ -37,7 +38,7 @@ export default function HomePage() {
   }, []);
   return (
     <div>
-      <Suspense>
+      <Suspense fallback={<Skeleton className="w-screen h-screen" />}>
         <Banner />
         <PopularCourses listCourses={listCourses} />
         <ViewCourses listCourses={listCourses} />
