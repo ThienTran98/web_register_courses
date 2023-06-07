@@ -7,7 +7,6 @@ import CoursesItem from "../../Component/CoursesItem/CoursesItem";
 
 export default function Search() {
   const params = useParams();
-  console.log("params: ", params);
   const [listCourses, setListCourses] = useState([]);
   useEffect(() => {
     getCoursesList()
