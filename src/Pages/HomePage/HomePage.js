@@ -28,7 +28,7 @@ export default function HomePage() {
           setListCourses(res.data);
         })
         .catch((err) => {});
-    }, 500);
+    }, 1000);
     return () => {
       clearTimeout(timeId);
     };
