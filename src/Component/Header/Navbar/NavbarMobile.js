@@ -260,7 +260,10 @@ export default function NavbarMobile() {
                   }}
                   className="text-3xl ml-2 px-2.5 lg:hidden py-2 text-teal-600 bg-gray-200 cursor-pointer ml-4"
                 >
-                  <FontAwesomeIcon className="block" icon={faBars} />
+                  <FontAwesomeIcon
+                    className="block transition duration-300 ease-linear"
+                    icon={faBars}
+                  />
                 </li>
               </>
             ) : (
@@ -270,15 +273,18 @@ export default function NavbarMobile() {
                 }}
                 className="text-4xl px-2.5 lg:hidden py-2 text-teal-600 bg-gray-200 cursor-pointer ml-4"
               >
-                <FontAwesomeIcon className="block " icon={faXmark} />
+                <FontAwesomeIcon
+                  className="block  transition duration-300 ease-linear"
+                  icon={faXmark}
+                />
               </li>
             )}
           </ul>
         </div>
       </div>
       {show ? (
-        <div className="border-t lg:hidden">
-          <ul className="px-6 py-3">
+        <div className="border-t lg:hidden transition duration-300 ease-linear">
+          <ul className="px-6 py-3 transition duration-300 ease-linear">
             <li className="mt-3 hover:text-teal-600">
               <NavLink to="/">Home</NavLink>
             </li>

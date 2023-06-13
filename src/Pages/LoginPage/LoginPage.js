@@ -54,6 +54,7 @@ export default function LoginPage() {
         });
     },
   });
+
   return (
     <section className="h-full lg:h-screen">
       <div className="px-6 h-full text-gray-800">
@@ -69,6 +70,7 @@ export default function LoginPage() {
             <form onSubmit={formik.handleSubmit}>
               <div className="flex flex-row items-center justify-center lg:justify-start">
                 <p className="text-lg mb-0 mr-4">Sign in with</p>
+
                 <button
                   type="button"
                   data-mdb-ripple="true"

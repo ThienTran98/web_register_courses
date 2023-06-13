@@ -17,6 +17,7 @@ export const base_URL = axios.create({
 base_URL.interceptors.request.use(
   function (config) {
     store.dispatch(setLoadingOn());
+
     // Do something before request is sent
     return config;
   },

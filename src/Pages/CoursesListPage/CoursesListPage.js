@@ -12,23 +12,23 @@ import CoursesItem from "../../Component/CoursesItem/CoursesItem";
 export default function CoursesListPage() {
   const [listCourses, setListCourses] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const dispatch = useDispatch;
-  const user = useSelector((state) => {
-    return state.userSlice.user;
-  });
-  const onChange = (pageNumber) => {
+  const [sizeItem, setSizeItem] = useState(10);
+
+  const onChange = (pageNumber, pageSize) => {
     setCurrentPage(pageNumber);
+    setSizeItem(pageSize);
   };
+
   useEffect(() => {
     document.title = "CoursesListPage";
   }, []);
   useEffect(() => {
-    getCourseListPagination(currentPage)
+    getCourseListPagination(currentPage, sizeItem)
       .then((res) => {
         setListCourses(res.data);
       })
       .catch((err) => {});
-  }, [currentPage]);
+  }, [currentPage, sizeItem]);
   const handleRenderListCourses = () => {
     return listCourses?.items.map((course, index) => {
       return <CoursesItem key={index} course={course} />;
