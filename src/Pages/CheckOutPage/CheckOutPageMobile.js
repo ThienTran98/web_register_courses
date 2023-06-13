@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./CheckOutPage.module.scss";
 import bgBook from "../../asset/img/footer-shape-2 (1).png";
@@ -10,20 +10,28 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { postCancelCourses } from "../../Service/coursesService";
 import { coursesListRegisterStorage } from "../../Service/localService";
+import image from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 export default function CheckOutPageMobile() {
+  const [fallbackImage, setFallbackImage] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const listCoursesRegister = useSelector((state) => {
     return state.coursesSlice.coursesListRegister;
   });
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
+  const handleErrorImage = () => {
+    setFallbackImage(image);
+  };
   const handleRenderCoursesCheckOut = () => {
-    return listCoursesRegister.map((course) => {
+    return listCoursesRegister.map((course, index) => {
       return (
         <div
+          key={index}
           className={`shadow-2xl rounded-md col-span-2 ${styles["check__register--left"]} mb-4`}
         >
           <div className={` p-[20px] ${styles["check__register--item"]}`}>
@@ -31,8 +39,9 @@ export default function CheckOutPageMobile() {
               <img
                 className="w-[130px]
                 h-24 rounded-sm object-cover mb-4"
-                src={course.hinhAnh}
+                src={fallbackImage || course.hinhAnh}
                 alt=""
+                onError={handleErrorImage}
               />
 
               <div className={` ${styles["check__register--text"]}`}>
@@ -140,13 +149,29 @@ export default function CheckOutPageMobile() {
                 <h3 className="text-right text-base mt-3 line-through">
                   {handlePriceCurrent()}
                 </h3>
-                <div className="flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center">
                   <button
                     onClick={handleCheckOutFinish}
-                    className={`text-[15px] md:text-lg lg:text-lg px-[30px] py-[16px] md:px-[24px] md:py-[12px] ${styles["check__register--right-btn"]}`}
+                    className={`text-[15px]  py-[12px]  ${styles["check__register--right-btn"]} min-w-[200px]`}
                   >
                     Place Order
                   </button>
+                  <div className="pt-2 mb-5 text-red-600 font-bold">Or</div>
+                  <div className="mt-3">
+                    <PayPalScriptProvider
+                      options={{
+                        clientId:
+                          "AS_jJfCvVZszUm3ucrsNmZ2OEgsCSoNSBVq26vsDT4ui0wR-N43HfU6pWOPzfrISjtM4OFPz_qP0xil2",
+                      }}
+                    >
+                      <PayPalButtons
+                        className="h-[60px] flex items-center"
+                        style={{
+                          color: "silver",
+                        }}
+                      />
+                    </PayPalScriptProvider>
+                  </div>
                 </div>
               </div>
             </div>

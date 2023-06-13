@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
-import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { getCourseListPagination } from "../../Service/coursesService";
-import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./CoursesListPage.module.scss";
-import ImageCourse from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
-import { setCoursesListWishList } from "../../redux-toolkit/coursesSlice";
 import CoursesItem from "../../Component/CoursesItem/CoursesItem";
 export default function CoursesListPage() {
   const [listCourses, setListCourses] = useState(null);

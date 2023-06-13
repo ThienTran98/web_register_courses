@@ -7,22 +7,29 @@ import bgTree from "../../asset/img/courses-shape.png";
 import { faCircleRadiation } from "@fortawesome/free-solid-svg-icons";
 import { setDeleteCoursesListRegister } from "../../redux-toolkit/coursesSlice";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 import { postCancelCourses } from "../../Service/coursesService";
 import { coursesListRegisterStorage } from "../../Service/localService";
+import image from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useState } from "react";
 
 export default function CheckOutPageDesktop() {
   const dispatch = useDispatch();
+  const [fallbackImage, setFallbackImage] = useState("");
   const listCoursesRegister = useSelector((state) => {
     return state.coursesSlice.coursesListRegister;
   });
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
+  const handleErrorImage = () => {
+    setFallbackImage(image);
+  };
   const handleRenderCoursesCheckOut = () => {
-    return listCoursesRegister.map((course) => {
+    return listCoursesRegister.map((course, index) => {
       return (
         <div
+          key={index}
           className={`shadow-2xl rounded-md col-span-2 ${styles["check__register--left"]}`}
         >
           <div
@@ -32,8 +39,9 @@ export default function CheckOutPageDesktop() {
               <img
                 className="w-[114px]
               h-20 rounded-sm mr-4"
-                src={course.hinhAnh}
+                src={fallbackImage || course.hinhAnh}
                 alt=""
+                onError={handleErrorImage}
               />
               <div className={`flex-grow ${styles["check__register--text"]}`}>
                 <h2>
@@ -143,10 +151,28 @@ export default function CheckOutPageDesktop() {
                 <div className="flex items-center justify-center">
                   <button
                     onClick={handleCheckOutFinish}
-                    className={`text-[15px] md:text-lg lg:text-lg px-[15px] py-[9px] md:px-[15px] md:py-[9px] lg:px-10 lg:py-4 ${styles["check__register--right-btn"]}`}
+                    className={`text-[15px] md:text-lg lg:text-lg px-[15px] py-[9px] md:px-[15px] md:py-[9px] lg:px-10 lg:py-4 ${styles["check__register--right-btn"]} `}
                   >
                     Place Order
                   </button>
+                  <span className="mx-3 text-red-600 font-bold">Or</span>
+                  <PayPalScriptProvider
+                    options={{
+                      clientId:
+                        "AS_jJfCvVZszUm3ucrsNmZ2OEgsCSoNSBVq26vsDT4ui0wR-N43HfU6pWOPzfrISjtM4OFPz_qP0xil2",
+                    }}
+                  >
+                    <PayPalButtons
+                      className="h-[60px] flex items-center"
+                      style={{
+                        color: "silver",
+                        layout: "horizontal",
+                        height: 55,
+                        tagline: false,
+                        shape: "rect",
+                      }}
+                    />
+                  </PayPalScriptProvider>
                 </div>
               </div>
             </div>

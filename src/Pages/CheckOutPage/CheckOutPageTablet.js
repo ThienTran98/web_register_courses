@@ -10,8 +10,12 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { postCancelCourses } from "../../Service/coursesService";
 import { coursesListRegisterStorage } from "../../Service/localService";
+import { useState } from "react";
+import image from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 export default function CheckOutPageTablet() {
+  const [fallbackImage, setFallbackImage] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const listCoursesRegister = useSelector((state) => {
@@ -20,10 +24,14 @@ export default function CheckOutPageTablet() {
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
+  const handleErrorImage = () => {
+    setFallbackImage(image);
+  };
   const handleRenderCoursesCheckOut = () => {
-    return listCoursesRegister.map((course) => {
+    return listCoursesRegister.map((course, index) => {
       return (
         <div
+          key={index}
           className={`shadow-2xl rounded-md col-span-2 ${styles["check__register--left"]} mb-4`}
         >
           <div
@@ -33,8 +41,9 @@ export default function CheckOutPageTablet() {
               <img
                 className="w-[114px]
               h-20 rounded-sm mr-4"
-                src={course.hinhAnh}
+                src={fallbackImage || course.hinhAnh}
                 alt=""
+                onError={handleErrorImage}
               />
               <div className={`flex-grow ${styles["check__register--text"]}`}>
                 <h2>
@@ -148,6 +157,24 @@ export default function CheckOutPageTablet() {
                   >
                     Place Order
                   </button>
+                  <span className="mx-3 text-red-600 font-bold">Or</span>
+                  <PayPalScriptProvider
+                    options={{
+                      clientId:
+                        "AS_jJfCvVZszUm3ucrsNmZ2OEgsCSoNSBVq26vsDT4ui0wR-N43HfU6pWOPzfrISjtM4OFPz_qP0xil2",
+                    }}
+                  >
+                    <PayPalButtons
+                      className="h-[60px] flex items-center"
+                      style={{
+                        color: "silver",
+                        layout: "horizontal",
+                        height: 52,
+                        tagline: false,
+                        shape: "rect",
+                      }}
+                    />
+                  </PayPalScriptProvider>
                 </div>
               </div>
             </div>
