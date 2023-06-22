@@ -1,0 +1,17 @@
+{
+  "register": {
+    "Create new account": "Tạo tài khoản mới",
+    "User Name": "Tài Khoản",
+    "Your Email": "Email",
+    "Password": "Mật Khẩu",
+    "Full Name": "Họ & Tên",
+    "Phone Number": "Số Điện Thoại",
+    "ID Group": "Nhóm",
+    "Choose a Group": "Lựa chọn nhóm",
+    "I accept the": "Tôi chấp nhận các ",
+    "Terms and Conditions": "điều khoản và điều kiện",
+    "Create an account": "Tạo một tài khoản",
+    "Already have an account?": "Bạn thực sự đã có tài khoản ? ",
+    "Login here": "Đăng nhập tại đây"
+  }
+}

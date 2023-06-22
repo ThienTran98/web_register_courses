@@ -5,21 +5,22 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { setUserLogin } from "../../redux-toolkit/userSlice";
 import { postLogin } from "../../Service/userService";
-import Swal from "sweetalert2";
 import { userLocalStorage } from "./../../Service/localService";
+import { useTranslation } from "react-i18next";
+import { message } from "antd";
 
 export default function LoginPage() {
-  const Toast = Swal.mixin({
-    toast: true,
-    position: "top",
-    showConfirmButton: false,
-    timer: 1000,
-  });
+  const { t, i18n } = useTranslation("login");
+  const currentLanguage = i18n.language;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
-    document.title = "Login";
-  }, []);
+    if (currentLanguage === "en") {
+      document.title = "Login";
+    } else {
+      document.title = "Đăng Nhập";
+    }
+  }, [currentLanguage]);
   const formik = useFormik({
     initialValues: {
       taiKhoan: "",
@@ -34,27 +35,27 @@ export default function LoginPage() {
         .then((res) => {
           dispatch(setUserLogin(res.data));
           userLocalStorage.set(res.data);
-          Toast.fire({
-            confirmButtonColor: "#49ae88",
-            color: "#3098b1",
-            icon: "success",
-            title: "Signed in successfully",
-          });
+          if (currentLanguage === "en") {
+            message.success("Signed in successfully !", 1);
+          } else {
+            message.success("Đăng Nhập Thành Công !", 1);
+          }
           setTimeout(() => {
             navigate("/");
           }, 1000);
         })
         .catch((err) => {
-          Toast.fire({
-            confirmButtonColor: "#49ae88",
-            color: "#3098b1",
-            icon: "error",
-            title: `${err.response.data} please try again`,
-          });
+          if (currentLanguage === "en") {
+            message.error(`${err.response.data} please try again`, 2);
+          } else {
+            message.error(`${err.response.data} xin vui lòng thử lại !`, 2);
+          }
         });
     },
   });
-
+  const loginSocial = () => {
+    message.warning("This feature is under development !");
+  };
   return (
     <section className="h-full lg:h-screen">
       <div className="px-6 h-full text-gray-800">
@@ -69,9 +70,10 @@ export default function LoginPage() {
           <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
             <form onSubmit={formik.handleSubmit}>
               <div className="flex flex-row items-center justify-center lg:justify-start">
-                <p className="text-lg mb-0 mr-4">Sign in with</p>
+                <p className="text-lg mb-0 mr-4">{t("login.Sign in with")}</p>
 
                 <button
+                  onClick={loginSocial}
                   type="button"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
@@ -89,6 +91,7 @@ export default function LoginPage() {
                   </svg>
                 </button>
                 <button
+                  onClick={loginSocial}
                   type="button"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
@@ -106,6 +109,7 @@ export default function LoginPage() {
                   </svg>
                 </button>
                 <button
+                  onClick={loginSocial}
                   type="button"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
@@ -124,7 +128,9 @@ export default function LoginPage() {
                 </button>
               </div>
               <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-                <p className="text-center font-semibold mx-4 mb-0">Or</p>
+                <p className="text-center font-semibold mx-4 mb-0">
+                  {t("login.Or")}
+                </p>
               </div>
 
               <div className="mb-6">
@@ -136,15 +142,18 @@ export default function LoginPage() {
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   value={formik.values.taiKhoan}
-                  placeholder="User Name"
+                  placeholder={t("login.User Name")}
                 />
-                {formik.errors.taiKhoan && (
-                  <h2 className="text-red-500 text-sm">
+                {currentLanguage === "en" && formik.errors.taiKhoan ? (
+                  <h2 className="text-red-600 text-sm">
                     {formik.errors.taiKhoan}
+                  </h2>
+                ) : (
+                  <h2 className="text-red-600 text-sm">
+                    Vui lòng nhập trường này !
                   </h2>
                 )}
               </div>
-
               <div className="mb-6">
                 <input
                   type="password"
@@ -154,11 +163,15 @@ export default function LoginPage() {
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   value={formik.values.matKhau}
-                  placeholder="Password"
+                  placeholder={t("login.Password")}
                 />
-                {formik.errors.matKhau && (
-                  <h2 className="text-red-500 text-sm">
+                {currentLanguage === "en" && formik.errors.matKhau ? (
+                  <h2 className="text-red-600 text-sm">
                     {formik.errors.matKhau}
+                  </h2>
+                ) : (
+                  <h2 className="text-red-600 text-sm">
+                    Vui lòng nhập trường này !
                   </h2>
                 )}
               </div>
@@ -174,12 +187,12 @@ export default function LoginPage() {
                     className="form-check-label inline-block text-gray-800"
                     htmlFor="exampleCheck2"
                   >
-                    Remember me
+                    {t("login.Remember me")}
                   </label>
                 </div>
 
                 <a href="#!" className="text-gray-800">
-                  Forgot password?
+                  {t("login.Forgot password?")}
                 </a>
               </div>
               <div className="text-center lg:text-left">
@@ -187,15 +200,16 @@ export default function LoginPage() {
                   type="submit"
                   className="inline-block px-7 py-3 bg-green-500 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:opacity-80 hover:shadow-lg focus:opacity-80 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
                 >
-                  Login
+                  {t("login.Login")}
                 </button>
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0 text-gray-400">
-                  Don't have an account?
+                  {t("login.Don't have an account?")}
+
                   <NavLink
                     to="/register"
                     className=" text-red-600 text-base hover:opacity-70 focus:text-red-700 transition duration-200 ease-in-out"
                   >
-                    Register
+                    {t("login.Register")}
                   </NavLink>
                 </p>
               </div>

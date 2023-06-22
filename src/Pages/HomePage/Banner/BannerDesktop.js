@@ -11,6 +11,7 @@ import shape2 from "../../../asset/img/shape-2 (1).svg";
 import shape3 from "../../../asset/img/shape-3.svg";
 
 import styles from "./Banner.module.scss";
+import { useTranslation } from "react-i18next";
 
 export default function BannerDesktop() {
   // tạo biến và truyền vào nút search
@@ -23,6 +24,7 @@ export default function BannerDesktop() {
       e.preventDefault();
     }
   };
+  const { t } = useTranslation("home");
   return (
     <div className={`${styles["homePage__banner"]} pt-[166px] pb-[185px]`}>
       <div className={`${styles["container-banner"]}`}>
@@ -38,23 +40,28 @@ export default function BannerDesktop() {
           <div className="banner-right">
             <div className={`${styles["homePage__banner__content"]}`}>
               <h1 className="animate-pulse text-[50px]">
-                Improve Your Online Learning Experience Better Instantly
+                {t(
+                  "banner.Improve Your Online Learning Experience Better Instantly"
+                )}
               </h1>
 
               <p
                 className="animate__animated animate__backInRight animate__slow  animate__delay-2s"
                 style={{ opacity: 1, transform: "none" }}
               >
-                We have <span>40k+</span> Online courses &amp;
-                <span>500K+</span> Online registered student. Find your desired
-                Courses from them.
+                {t("banner.We have")} <span>{t("banner.40k+")}</span>{" "}
+                {t("banner.Online courses")}
+                <span className="mx-1">{t("banner.500K+")}</span>
+                {t(
+                  "banner.Online registered student. Find your desired Courses from them."
+                )}
               </p>
 
               <form className={`${styles["search-form"]} flex items-center`}>
                 <input
                   type="text"
                   className={`${styles["form-control"]} grow`}
-                  placeholder="Search Courses"
+                  placeholder={t("banner.Search Courses")}
                   name="search"
                   onChange={(e) => {
                     setValueSearch(e.target.value);
@@ -64,7 +71,7 @@ export default function BannerDesktop() {
                   onClick={handleSearchValues}
                   className={`${styles["default-btn"]} flex items-center`}
                 >
-                  Search Now
+                  {t("banner.Search Now")}
                   <FontAwesomeIcon className="ml-2" icon={faSearch} />
                 </button>
               </form>
@@ -85,12 +92,13 @@ export default function BannerDesktop() {
                 </li>
                 <li className="flex items-center">
                   <p>
-                    500K+ People already trusted us.
+                    {t("banner.500K+ People already trusted us.")}
                     <NavLink
                       className="underline underline-offset-4 hover:opacity-75"
                       to="/courses-list"
                     >
-                      View Courses <FontAwesomeIcon icon={faArrowRight} />
+                      {t("banner.View Courses")}{" "}
+                      <FontAwesomeIcon icon={faArrowRight} />
                     </NavLink>
                   </p>
                 </li>

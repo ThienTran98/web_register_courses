@@ -7,8 +7,8 @@ import {
   faCartShopping,
   faCreditCard,
   faGear,
+  faGlobe,
   faHeart,
-  faMagnifyingGlass,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,16 +24,16 @@ import {
   coursesListRegisterStorage,
   userLocalStorage,
 } from "../../../Service/localService";
-import {
-  setCourseAddToCart,
-  setRegisterCoursesList,
-} from "../../../redux-toolkit/coursesSlice";
+import { useTranslation } from "react-i18next";
 
 export default function NavbarDesktopAndTablet() {
   const [show, setShow] = useState(false);
   const [showInfor, setShowInfor] = useState(false);
+  const [showChangeLanguage, setShowChangeLanguage] = useState(false);
   const navigation = useNavigate();
   const dispatch = useDispatch();
+  const { t, i18n } = useTranslation("header");
+  const currentLanguage = i18n.language;
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
@@ -43,13 +43,24 @@ export default function NavbarDesktopAndTablet() {
     userLocalStorage.remove();
     coursesListRegisterStorage.remove();
     setShowInfor(false);
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Log out successfully",
-      showConfirmButton: false,
-      timer: 1000,
-    });
+    if (currentLanguage === "en") {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Log out successfully !",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    } else {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Đăng xuất thành công !",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    }
+
     navigation("/login");
     setTimeout(() => {
       window.location.reload();
@@ -80,7 +91,7 @@ export default function NavbarDesktopAndTablet() {
                     className="block py-4  hover:no-underline focus:text-teal-600 pl-3 pr-4 text-base hover:scale-x-125 rounded ease-in duration-300 hover:bg-transparent hover:text-teal-700"
                     aria-current="page"
                   >
-                    Home
+                    {t("navbar.Home")}
                   </NavLink>
                 </li>
                 <li>
@@ -88,19 +99,19 @@ export default function NavbarDesktopAndTablet() {
                     to="/courses-list"
                     className="block py-4 hover:no-underline pl-3 pr-4 text-base  focus:text-teal-600 hover:scale-x-125 rounded  ease-in duration-300 hover:bg-transparent hover:text-teal-700"
                   >
-                    Course
+                    {t("navbar.Course")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="block py-4 hover:no-underline pl-3 pr-4 text-base  focus:text-teal-600 rounded hover:scale-x-125  hover:bg-transparent ease-in duration-300 hover:text-teal-700">
-                    Become An Instructor
+                    {t("navbar.Become An Instructor")}
                   </NavLink>
                 </li>
               </ul>
             </div>
           </div>
           <ul className="flex justify-between items-center">
-            <li className="px-8 md:mr-8  lg:mr-8 lg:border-x-zinc-400  lg:border-y-transparent text-3xl lg:text-2xl lg:border-2">
+            <li className="px-8 md:mr-8  lg:mr-8 lg:border-zinc-400 lg:border-r-2 text-3xl lg:text-2xl md:border-zinc-400 md:border-r-2">
               <NavLink to="/check-out" className="relative">
                 <FontAwesomeIcon
                   className="text-teal-600 block"
@@ -120,7 +131,7 @@ export default function NavbarDesktopAndTablet() {
                     to="/register"
                     className="block hover:text-white no-underline hover:no-underline"
                   >
-                    Register Now
+                    {t("navbar.Register Now")}
                   </NavLink>
                 </button>
               </li>
@@ -158,7 +169,7 @@ export default function NavbarDesktopAndTablet() {
                         src="https://source.unsplash.com/40x40/?portrait?1"
                         alt=""
                       />
-                      <div>
+                      <div className="ml-3">
                         <h3>{user.hoTen}</h3>
                         <p>{user.email}</p>
                       </div>
@@ -181,7 +192,7 @@ export default function NavbarDesktopAndTablet() {
                             className="mr-3 block"
                             icon={faBook}
                           />
-                          My Learning
+                          {t("navbar.My Learning")}
                         </NavLink>
                       </li>
                       <li className="py-2">
@@ -196,7 +207,7 @@ export default function NavbarDesktopAndTablet() {
                             className="mr-3 block"
                             icon={faCreditCard}
                           />
-                          My Purchase
+                          {t("navbar.My Purchase")}
                         </NavLink>
                       </li>
                       <li className="py-2">
@@ -211,9 +222,45 @@ export default function NavbarDesktopAndTablet() {
                             className="mr-3 block"
                             icon={faHeart}
                           />
-                          Wishlist
+                          {t("navbar.Wishlist")}
                         </NavLink>
                       </li>
+                      {showChangeLanguage ? (
+                        <li className="py-2 block md:block lg:hidden">
+                          <NavLink
+                            onClick={() => {
+                              setShowInfor(!showInfor);
+                              i18n.changeLanguage("vi");
+                              setShowChangeLanguage(!showChangeLanguage);
+                            }}
+                            className="flex items-center no-underline hover:no-underline hover:text-teal-500"
+                          >
+                            <FontAwesomeIcon
+                              className="mr-3 block"
+                              icon={faGlobe}
+                            />
+                            {t("navbar.Change Language")}
+                          </NavLink>
+                        </li>
+                      ) : (
+                        <li className="py-2 block md:block lg:hidden">
+                          <NavLink
+                            onClick={() => {
+                              setShowInfor(!showInfor);
+                              i18n.changeLanguage("en");
+                              setShowChangeLanguage(!showChangeLanguage);
+                            }}
+                            className="flex items-center no-underline hover:no-underline hover:text-teal-500"
+                          >
+                            <FontAwesomeIcon
+                              className="mr-3 block"
+                              icon={faGlobe}
+                            />
+                            {t("navbar.Change Language")}
+                          </NavLink>
+                        </li>
+                      )}
+
                       <li className="py-2">
                         <NavLink
                           onClick={() => {
@@ -226,7 +273,7 @@ export default function NavbarDesktopAndTablet() {
                             className="mr-3 block"
                             icon={faGear}
                           />
-                          Account Setting
+                          {t("navbar.Account Setting")}
                         </NavLink>
                       </li>
                     </ul>
@@ -238,7 +285,7 @@ export default function NavbarDesktopAndTablet() {
                         className="mr-3 block"
                         icon={faArrowCircleLeft}
                       />
-                      Log Out
+                      {t("navbar.Log Out")}
                     </div>
                   </div>
                 ) : null}
@@ -278,10 +325,12 @@ export default function NavbarDesktopAndTablet() {
         <div className="border-t lg:hidden transition duration-300 ease-linear">
           <ul className="px-6 py-3 transition duration-300 ease-linear">
             <li className="mt-3 hover:text-teal-600">
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">{t("navbar.Home")}</NavLink>
             </li>
-            <li className="mt-3 hover:text-teal-600">Courses</li>
-            <li className="mt-3 hover:text-teal-600">Become An Instructor</li>
+            <li className="mt-3 hover:text-teal-600">{t("navbar.Course")}</li>
+            <li className="mt-3 hover:text-teal-600">
+              {t("navbar.Become An Instructor")}
+            </li>
           </ul>
         </div>
       ) : null}

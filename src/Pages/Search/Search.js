@@ -4,10 +4,13 @@ import { getCoursesList } from "../../Service/coursesService";
 import styles from "./Search.module.scss";
 import documentImage from "../../asset/img/a60759ad1dabe909c46a817ecbf71878.png";
 import CoursesItem from "../../Component/CoursesItem/CoursesItem";
+import { useTranslation } from "react-i18next";
 
 export default function Search() {
   const params = useParams();
   const [listCourses, setListCourses] = useState([]);
+  const { t, i18n } = useTranslation("search");
+  const currentLanguage = i18n.language;
   useEffect(() => {
     getCoursesList()
       .then((res) => {
@@ -16,8 +19,12 @@ export default function Search() {
       .catch((err) => {});
   }, []);
   useEffect(() => {
-    document.title = `Search/${params.values}`;
-  }, []);
+    if (currentLanguage === "vi") {
+      document.title = `Kết quả tìm kiếm`;
+    } else {
+      document.title = `Result Search`;
+    }
+  }, [currentLanguage]);
   // danh sách khóa học tìm dc
   const listSearchCoursesValues = listCourses.filter((course) => {
     return course.tenKhoaHoc
@@ -32,13 +39,13 @@ export default function Search() {
           className={`${styles["search__text-result"]} text-center md:text-center lg:text-left mt-10 md:mt-10 lg:mt-0`}
         >
           <h3>
-            Keywords Search : <span>{params.values}</span>
+            {t("search.Keywords Search")} : <span>{params.values}</span>
           </h3>
         </div>
         <img className="w-24 h-24" src={documentImage} alt="" />
         <div className={`${styles["search__text--content"]} text-center`}>
-          <h3>No result is found</h3>
-          <h4>Try using more generic keywords</h4>
+          <h3>{t("search.No result is found")}</h3>
+          <h4>{t("search.Try using more generic keywords")}</h4>
         </div>
       </div>
     );
@@ -60,7 +67,7 @@ export default function Search() {
             className={`${styles["search__text-result"]} text-center md:text-center lg:text-left mt-10 md:mt-10 lg:mt-0`}
           >
             <h3>
-              Keywords Search : <span>{params.values}</span>
+              {t("search.Keywords Search")} : <span>{params.values}</span>
             </h3>
           </div>
           <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">

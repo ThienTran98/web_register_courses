@@ -8,6 +8,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userSlice from "./redux-toolkit/userSlice";
 import coursesSlice from "./redux-toolkit/coursesSlice";
 import spinnerSlice from "./redux-toolkit/spinnerSlice";
+import "./i18n/i18n";
 
 export const store = configureStore({
   reducer: {

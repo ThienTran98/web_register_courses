@@ -7,11 +7,41 @@
 .bg__top-header .text__header-color {
   color: #e6f8fc;
 }
-.bg__top-header .li-item {
+.bg__top-header .li__item-flag {
+  position: relative;
+  transition: all 0.3 ease-in;
+}
+.bg__top-header .li__item-flag:hover .li__item-languages {
+  display: block;
+}
+.bg__top-header .li__item-flag:hover .li__item-languages:before {
+  display: block;
+}
+.bg__top-header .li__item-flag .li__item-languages {
+  position: absolute;
+  content: "";
+  top: 100%;
+  right: 0;
+  width: 130px;
+  display: none;
+  transition: all 0.3 ease-in;
+  color: #464646;
+}
+.bg__top-header .li__item-flag .li__item-languages:before {
+  content: "";
+  border-width: 10px 14px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  right: 25px;
+  top: -10px;
+  display: none;
+  transition: all 0.3 ease-in;
+}
+.bg__top-header .li__item {
   margin: 0 30px;
-  width: 0.5px;
+  width: 1px;
   background-color: #fff;
-  height: 24px;
   text-align: center;
   border: none;
 }/*# sourceMappingURL=Top_Header.module.css.map */

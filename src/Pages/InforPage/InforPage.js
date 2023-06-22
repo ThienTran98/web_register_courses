@@ -9,11 +9,13 @@ import ImageCourse from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from "./InforPage.module.scss";
+import { useTranslation } from "react-i18next";
 
 export default function InforPage() {
   const courseWishList = useSelector((state) => {
     return state.coursesSlice.coursesListWishList;
   });
+  const { t } = useTranslation("infor");
   useEffect(() => {
     document.title = "Information";
   }, []);
@@ -34,7 +36,8 @@ export default function InforPage() {
             <div className="px-5 pb-5">
               <a href="#">
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 mt-2 min-h-[56px]">
-                  Course :&nbsp;
+                  {t("infor.Course")}
+                  &nbsp;
                   {course.tenKhoaHoc.length <= 40
                     ? course.tenKhoaHoc
                     : course.tenKhoaHoc.slice(0, 40) + "..."}
@@ -66,19 +69,22 @@ export default function InforPage() {
                 </span>
               </div>
               <h3>
-                Mentor :&nbsp;
+                {t("infor.Mentor")}
+                &nbsp;
                 {course.nguoiTao.hoTen === null
                   ? "Ẩn danh"
                   : course.nguoiTao.hoTen}
               </h3>
               <div className="flex items-center mt-2 font-medium">
-                Price : &nbsp;
+                {t("infor.Price")}
+                &nbsp;
                 <span className="text-2xl font-normal text-gray-500 line-through mr-3">
                   $599
                 </span>
                 <span
                   className={`text-3xl  font-bold ${styles["item__courses-coupon"]}`}
                 >
+                  {t("infor.")}
                   $399
                 </span>
               </div>
@@ -88,14 +94,17 @@ export default function InforPage() {
             >
               <div>
                 <h2 className="font-bold text-base mb-5">
-                  Linux Administration Bootcamp: Go from Beginner to Advanced
+                  {t(
+                    "infor.Linux Administration Bootcamp: Go from Beginner to Advanced"
+                  )}
                 </h2>
                 <h3>
-                  Hello. My name is Admin Cannon and I'm the author of Linux for
-                  Beginners, the founder of the Linux Training
+                  {t(
+                    "infor.Hello. My name is Admin Cannon and I'm the author of Linux for Beginners, the founder of the Linux Training"
+                  )}
                 </h3>
                 <h4 className="flex items-center justify-between mt-4 mb-8">
-                  Like :
+                  {t("infor.Like")}
                   <FontAwesomeIcon
                     className={`text-2xl flex items-center justify-center ${styles["heart__icon"]}`}
                     icon={faHeart}
@@ -105,14 +114,14 @@ export default function InforPage() {
                   className={`flex items-center justify-between ${styles["item__courses-footer"]}`}
                 >
                   <button className={`${styles["courses__btn"]}`}>
-                    Add To Cart
+                    {t("infor.Add To Cart")}
                   </button>
                   <button className={`${styles["courses__btn"]}`}>
                     <NavLink
                       className="block"
                       to={`/detail/${course.maKhoaHoc}`}
                     >
-                      Detail
+                      {t("infor.Detail")}
                     </NavLink>
                   </button>
                 </div>
@@ -129,7 +138,8 @@ export default function InforPage() {
       return (
         <div className="flex items-center justify-center">
           <h2 className="text-2xl font-bold text-teal-600">
-            Epmty
+            {t("infor. Empty")}
+
             <FontAwesomeIcon
               className="text-amber-400 ml-3"
               icon={faFaceSadCry}
@@ -152,7 +162,7 @@ export default function InforPage() {
           <h2
             className={` text-center text-[28px] md:text-[40px] lg:text-[40px] font-semibold ${styles["infor__title"]}`}
           >
-            Courses WishList
+            {t("infor.Courses WishList")}
           </h2>
         </div>
         {handleCheckEmptyWishList()}

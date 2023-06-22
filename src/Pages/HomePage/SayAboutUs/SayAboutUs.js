@@ -1,8 +1,10 @@
 import React from "react";
 import ImgAbout from "../../../asset/img/testimonial-1.png";
 import styles from "./SayAboutUs.module.scss";
+import { useTranslation } from "react-i18next";
 
 export default function SayAboutUs() {
+  const { t } = useTranslation("home");
   return (
     <div className="pt-[60px] pb-[30px] md:pt-[60px] md:pb-[30px] lg:pt-[100px] lg:pb-[70px]">
       <div className="px-3 md:px-8 lg:px-8">
@@ -16,7 +18,9 @@ export default function SayAboutUs() {
             className={`flex items-center justify-center px-0 md:px-3 lg:px-3  ${styles["about__right"]}`}
           >
             <h2 className="text-[28px] md:text-[40px] lg:text-[40px] leading-10 md:leading-[60px] lg:leading-[80px] ">
-              Our Students Are Our Strength. See What They Say About Us
+              {t(
+                "say-about-us.Our Students Are Our Strength. See What They Say About Us"
+              )}
             </h2>
           </div>
         </div>

@@ -7,11 +7,44 @@
   .text__header-color {
     color: $color-text-1;
   }
-  .li-item {
+  .li__item-flag {
+    position: relative;
+    transition: all 0.3 ease-in;
+    &:hover {
+      .li__item-languages {
+        display: block;
+        &:before {
+          display: block;
+        }
+      }
+    }
+    .li__item-languages {
+      position: absolute;
+      content: "";
+      top: 100%;
+      right: 0;
+      width: 130px;
+      display: none;
+      transition: all 0.3 ease-in;
+      color: $color-font-7;
+
+      &:before {
+        content: "";
+        border-width: 10px 14px;
+        border-style: solid;
+        border-color: transparent transparent $color-font-1 transparent;
+        position: absolute;
+        right: 25px;
+        top: -10px;
+        display: none;
+        transition: all 0.3 ease-in;
+      }
+    }
+  }
+  .li__item {
     margin: 0 30px;
-    width: 0.5px;
-    background-color: #fff;
-    height: 24px;
+    width: 1px;
+    background-color: $color-font-1;
     text-align: center;
     border: none;
   }

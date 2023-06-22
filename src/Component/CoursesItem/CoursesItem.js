@@ -14,21 +14,22 @@ import {
   setCoursesListWishList,
 } from "../../redux-toolkit/coursesSlice";
 import Swal from "sweetalert2";
-
 import ImageError from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
 import ImageError1 from "../../asset/img/r1ysgphohxnzf1t5a4m0.jpg";
-
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useTranslation } from "react-i18next";
+import { message } from "antd";
 
 export default function CoursesItem({ course }) {
   const [fallbackImage, setFallbackImage] = useState("");
   const [loading, setLoading] = useState(true);
-
+  const { t, i18n } = useTranslation("coursesItem");
+  const currentLanguage = i18n.language;
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
@@ -60,22 +61,42 @@ export default function CoursesItem({ course }) {
       })
         .then((res) => {
           dispatch(setCourseAddToCart(course));
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Added course to cart",
-            showConfirmButton: false,
-            timer: 1000,
-          });
+          if (currentLanguage === "en") {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Added course to cart",
+              showConfirmButton: false,
+              timer: 1000,
+            });
+          } else {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Thêm khóa học vào giỏ hàng",
+              showConfirmButton: false,
+              timer: 1000,
+            });
+          }
         })
         .catch((err) => {
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            title: "The course is already in your cart",
-            showConfirmButton: false,
-            timer: 1000,
-          });
+          if (currentLanguage === "en") {
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              title: "The course is already in your cart",
+              showConfirmButton: false,
+              timer: 1000,
+            });
+          } else {
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              title: "Khóa học này đã sự thực tồn tại trong giỏ hàng",
+              showConfirmButton: false,
+              timer: 1000,
+            });
+          }
         });
     } else {
       navigate("/login");
@@ -104,13 +125,12 @@ export default function CoursesItem({ course }) {
             <div className="px-5 pb-5">
               <a href="#">
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 mt-2 min-h-[56px]">
-                  Course :&nbsp;
+                  {t("coursesItem.Course")} &nbsp;
                   {course?.tenKhoaHoc.length <= 40
                     ? course?.tenKhoaHoc
                     : course?.tenKhoaHoc.slice(0, 40) + "..."}
                 </h5>
               </a>
-
               <div className="flex items-center mt-2.5 mb-5">
                 <FontAwesomeIcon
                   className="w-5 h-5 text-yellow-300"
@@ -137,13 +157,14 @@ export default function CoursesItem({ course }) {
                 </span>
               </div>
               <h3>
-                Mentor :&nbsp;
+                {t("coursesItem.Mentor")}
+                &nbsp;
                 {course?.nguoiTao.hoTen === null
                   ? "Ẩn danh"
                   : course?.nguoiTao.hoTen}
               </h3>
               <div className="flex items-center mt-2 font-medium">
-                Price : &nbsp;
+                {t("coursesItem.Price")} &nbsp;
                 <span className="text-2xl font-normal text-gray-500 line-through mr-3">
                   $599
                 </span>
@@ -159,14 +180,17 @@ export default function CoursesItem({ course }) {
             >
               <div>
                 <h2 className="font-bold text-base mb-5">
-                  Linux Administration Bootcamp: Go from Beginner to Advanced
+                  {t(
+                    "coursesItem.Linux Administration Bootcamp Go from Beginner to Advanced"
+                  )}
                 </h2>
                 <h3>
-                  Hello. My name is Admin Cannon and I'm the author of Linux for
-                  Beginners, the founder of the Linux Training
+                  {t(
+                    "coursesItem.Hello. My name is Admin Cannon and I'm the author of Linux for Beginners, the founder of the Linux Training"
+                  )}
                 </h3>
                 <h4 className="flex items-center justify-between mt-4 mb-8">
-                  Like :
+                  {t("coursesItem.Like")}
                   <FontAwesomeIcon
                     onClick={() => {
                       handleDispatchCourseWishList(course);
@@ -180,16 +204,16 @@ export default function CoursesItem({ course }) {
                 >
                   <button
                     onClick={handleAddToCart}
-                    className={`${styles["courses__btn"]}`}
+                    className={`${styles["courses__btn"]} mr-0  md:mr-2 lg:mr-0 `}
                   >
-                    Add To Cart
+                    {t("coursesItem.Add To Cart")}
                   </button>
-                  <button className={`${styles["courses__btn"]}`}>
+                  <button className={`${styles["courses__btn"]} `}>
                     <NavLink
                       className="block"
                       to={`/detail/${course?.maKhoaHoc}`}
                     >
-                      Detail
+                      {t("coursesItem.Detail")}
                     </NavLink>
                   </button>
                 </div>

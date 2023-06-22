@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { postRegister } from "../../Service/userService";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function RegisterPage() {
   const regexNumber = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$/;
@@ -14,6 +15,7 @@ export default function RegisterPage() {
   const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9_])/;
 
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation("register");
   const formik = useFormik({
     initialValues: {
       taiKhoan: "",
@@ -80,7 +82,7 @@ export default function RegisterPage() {
         <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md">
           <div className="px-8 space-y-4 md:space-y-6 py-4">
             <h1 className={`text-2xl font-bold text-gray-900`}>
-              Create new account
+              {t("register.Create new account")}
             </h1>
             <form
               onSubmit={formik.handleSubmit}
@@ -92,7 +94,7 @@ export default function RegisterPage() {
                   htmlFor="taiKhoan"
                   className="block text-sm font-medium text-gray-900"
                 >
-                  User Name
+                  {t("register.User Name")}
                 </label>
                 <input
                   type="text"
@@ -115,7 +117,7 @@ export default function RegisterPage() {
                   htmlFor="email"
                   className="block mb-1 text-sm font-medium text-gray-900 "
                 >
-                  Your Email
+                  {t("register.Your Email")}
                 </label>
                 <input
                   type="email"
@@ -138,7 +140,7 @@ export default function RegisterPage() {
                   htmlFor="matKhau"
                   className="block mb-1 text-sm font-medium text-gray-900 "
                 >
-                  Password
+                  {t("register.Password")}
                 </label>
                 <input
                   type="password"
@@ -161,7 +163,7 @@ export default function RegisterPage() {
                   htmlFor="hoTen"
                   className="block mb-1 text-sm font-medium text-gray-900 "
                 >
-                  Full Name
+                  {t("register.Full Name")}
                 </label>
                 <input
                   onChange={formik.handleChange}
@@ -184,7 +186,7 @@ export default function RegisterPage() {
                   htmlFor="soDT"
                   className="block mb-1 text-sm font-medium text-gray-900 "
                 >
-                  Phone Number
+                  {t("register.Phone Number")}
                 </label>
                 <input
                   type="text"
@@ -206,7 +208,7 @@ export default function RegisterPage() {
                     htmlFor="maNhom"
                     className="block mb-1 text-sm font-medium text-gray-900 "
                   >
-                    ID Group
+                    {t("register.ID Group")}
                   </label>
                   <select
                     id="maNhom"
@@ -215,7 +217,7 @@ export default function RegisterPage() {
                     value={formik.values.maNhom}
                     className="bg-gray-50 border  outline-0 text-gray-900 text-sm rounded-lg focus:border-2 hover:border-green-500 block w-full  p-2 "
                   >
-                    <option defaultValue>Choose a Group</option>
+                    <option defaultValue>{t("register.Choose a Group")}</option>
                     <option value="GP01">GP01</option>
                     <option value="GP02">GP02</option>
                     <option value="GP03">GP03</option>
@@ -246,12 +248,13 @@ export default function RegisterPage() {
                 </div>
                 <div className="ml-3 text-sm">
                   <label htmlFor="terms" className="font-light text-gray-500 ">
-                    I accept the
+                    {t("register.I accept the")}
+
                     <a
                       className="font-medium text-primary-600 hover:underline"
                       href="#"
                     >
-                      Terms and Conditions
+                      {t("register.Terms and Conditions")}
                     </a>
                   </label>
                 </div>
@@ -261,15 +264,16 @@ export default function RegisterPage() {
                 type="submit"
                 className={`mt-3 w-full text-white bg-teal-500 hover:opacity-80 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
               >
-                Create an account
+                {t("register.Create an account")}
               </button>
               <p className={`mt-3 text-sm font-light text-gray-500`}>
-                Already have an account?
+                {t("register.Already have an account?")}
+
                 <NavLink
                   to="/login"
                   className="font-medium text-primary-600 hover:underline "
                 >
-                  Login here
+                  {t("register.Login here")}
                 </NavLink>
               </p>
             </form>

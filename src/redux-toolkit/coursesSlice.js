@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { message } from "antd";
-import Swal from "sweetalert2";
 import { coursesListRegisterStorage } from "./../Service/localService";
 
 const initialState = {

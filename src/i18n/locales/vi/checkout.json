@@ -1,0 +1,14 @@
+{
+  "checkout": {
+    "Course": "Khóa học : ",
+    "By": "Tác giả : ",
+    "Lectures": "Bài giảng",
+    "Remove": "Xóa",
+    "Empty": "Giỏ hàng rỗng",
+    "Total": "Tổng tiền : ",
+    "Place Order": "Đặt Ngay",
+    "Or": "Hoặc",
+    "Checkout": "Thanh toán",
+    "Courses": "Các khóa học"
+  }
+}

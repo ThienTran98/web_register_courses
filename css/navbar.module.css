@@ -40,6 +40,22 @@
   z-index: -1;
 }
 
+.item__cart--number-mobile {
+  position: absolute;
+  content: "";
+  top: -38%;
+  right: 25%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #7b7af5;
+  z-index: -1;
+}
+
 .arrow__position {
   content: "";
   position: absolute;

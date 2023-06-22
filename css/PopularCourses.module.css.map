@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/Pages/HomePage/PopularCourses/PopularCourses.module.scss","PopularCourses.module.css","../src/styles/variable.scss"],"names":[],"mappings":"AAEA;EACE,gBAAA;EACA,cAAA;ACDF;;ADGA;EACE,cE0Ce;AD1CjB","file":"PopularCourses.module.css"}
+{"version":3,"sources":["../src/Pages/HomePage/PopularCourses/PopularCourses.module.scss","PopularCourses.module.css","../src/styles/variable.scss"],"names":[],"mappings":"AAEA;EACE,gBAAA;EACA,cAAA;ACDF;;ADGA;EACE,cEyCe;ADzCjB","file":"PopularCourses.module.css"}

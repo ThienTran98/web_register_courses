@@ -1,0 +1,14 @@
+{
+  "checkout": {
+    "Course": "Course : ",
+    "By": "By : ",
+    "Lectures": "Lectures",
+    "Remove": "Remove",
+    "Empty": "Empty",
+    "Total": "Total",
+    "Place Order": "Place Order",
+    "Or": "Or",
+    "Checkout": "Checkout",
+    "Courses": "Courses"
+  }
+}

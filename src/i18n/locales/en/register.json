@@ -1,0 +1,17 @@
+{
+  "register": {
+    "Create new account": "Create new account",
+    "User Name": "User Name",
+    "Your Email": "Your Email",
+    "Password": "Password",
+    "Full Name": "Full Name",
+    "Phone Number": "Phone Number",
+    "ID Group": "ID Group",
+    "Choose a Group": "Choose a Group",
+    "I accept the": "I accept the ",
+    "Terms and Conditions": "Terms and Conditions",
+    "Create an account": "Create an account",
+    "Already have an account?": "Already have an account ? ",
+    "Login here": "Login here"
+  }
+}

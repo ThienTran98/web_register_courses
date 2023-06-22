@@ -23,13 +23,15 @@ import {
 import styles from "./DetailPage.module.scss";
 
 import ImageError from "../../asset/img/icvgops1gqcosgv3dxde.jpg";
+import { useTranslation } from "react-i18next";
 
 export default function DetailPage() {
   const param = useParams();
   const [show, setShow] = useState(false);
   const [detail, setDetail] = useState(null);
   const [fallbackImage, setFallbackImage] = useState("");
-
+  const { t, i18n } = useTranslation("detail");
+  const currentLanguage = i18n.language;
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => {
@@ -43,8 +45,12 @@ export default function DetailPage() {
       .catch((err) => {});
   }, [param.id]);
   useEffect(() => {
-    document.title = "CourseList/Detail-Course";
-  }, []);
+    if (currentLanguage === "en") {
+      document.title = "Detail Course";
+    } else {
+      document.title = "Chi tiết khóa học";
+    }
+  }, [currentLanguage]);
   const handleClickButton = (e) => {
     e.preventDefault();
   };
@@ -57,30 +63,58 @@ export default function DetailPage() {
       })
         .then((res) => {
           dispatch(setRegisterCoursesList(detail));
-          Swal.fire({
-            confirmButtonColor: "#49ae88",
-            color: "#3098b1",
-            title: "Register Course Successfully",
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-          });
+          if (currentLanguage === "en") {
+            Swal.fire({
+              confirmButtonColor: "#49ae88",
+              color: "#3098b1",
+              title: "Register Course Successfully !",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          } else {
+            Swal.fire({
+              confirmButtonColor: "#49ae88",
+              color: "#3098b1",
+              title: "Đăng ký khóa học thành công !",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          }
         })
         .catch((error) => {
-          Swal.fire({
-            confirmButtonColor: "#49ae88",
-            title: "Already signed up for this course",
-            color: "#3098b1",
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-          });
+          if (currentLanguage === "en") {
+            Swal.fire({
+              confirmButtonColor: "#49ae88",
+              title: "Already signed up for this course",
+              color: "#3098b1",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          } else {
+            Swal.fire({
+              confirmButtonColor: "#49ae88",
+              title: "Đã đăng ký khóa học này !",
+              color: "#3098b1",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          }
         });
     } else {
       navigation("/login");
@@ -93,8 +127,10 @@ export default function DetailPage() {
     <div>
       <div className="bg-gray-200">
         <div className="px-8 p-12 text-teal-500">
-          <h2 className="text-3xl mb-2">COURSE INFORMATION</h2>
-          <p className="font-light">GO FORWARD AND DON'T WAIT !!!</p>
+          <h2 className="text-3xl mb-2">{t("detail.COURSE INFORMATION")}</h2>
+          <p className="font-light">
+            {t("detail.GO FORWARD AND DON'T WAIT !!!")}
+          </p>
         </div>
       </div>
       <div className="px-4 py-6 bg-gray-100">
@@ -110,11 +146,13 @@ export default function DetailPage() {
                 </NavLink>
               </li>
               <li className="mr-4 text-gray-400">
-                Student:
+                {t("detail.Student")}
+
                 <span className="text-teal-500">{detail?.soLuongHocVien}</span>
               </li>
               <li className=" text-gray-400">
-                Start: <span className="text-teal-500">{detail?.ngayTao}</span>
+                {t("detail.Start")}
+                <span className="text-teal-500">{detail?.ngayTao}</span>
               </li>
             </ul>
             <div className="mb-4 lg:flex items-center justify-between">
@@ -125,7 +163,7 @@ export default function DetailPage() {
                   src="https://source.unsplash.com/40x40/?portrait?1"
                 />
                 <div className="ml-1">
-                  <h4 className="mb-1">Lecturer</h4>
+                  <h4 className="mb-1">{t("detail.Lecturer")}</h4>
                   <h3 className="text-teal-500">{detail?.nguoiTao.hoTen}</h3>
                 </div>
               </div>
@@ -134,7 +172,7 @@ export default function DetailPage() {
                   <FontAwesomeIcon icon={faGraduationCap} />
                 </div>
                 <div>
-                  <h4 className=" mb-1 opacity-90">Field</h4>
+                  <h4 className=" mb-1 opacity-90">{t("detail.Field")}</h4>
                   <h3 className="text-teal-500">
                     {detail?.danhMucKhoaHoc.tenDanhMucKhoaHoc}
                   </h3>
@@ -142,31 +180,23 @@ export default function DetailPage() {
               </div>
               <div className="mt-3 md:mt-0 lg:mt-0">
                 <h2>
-                  Access times:
-                  <span className="text-teal-500">{detail?.luotXem}</span> views
+                  {t("detail.Access times")}
+                  <span className="text-teal-500">{detail?.luotXem}</span>
+                  {t("detail.views")}
                 </h2>
               </div>
             </div>
             <div className="text-justify pb-6 border-b-2">
               <p>
-                To create contemporary, responsive user interfaces for the
-                online, React.js is the most well-known JavaScript toolkit you
-                can use and learn today. This course will teach you React
-                in-depth, starting with the fundamentals. You'll take a
-                step-by-step look at all the key fundamentals, find many
-                examples, and be introduced to advanced ideas. You'll learn all
-                the theory, a ton of examples, tutorials, demos, exercises, and
-                exercises in addition to a wealth of crucial information that is
-                usually missed by other sources - After all, this course is
-                excellent for a reason! And if you're just here for the
-                advertisements or "algorithms" and don't even know why you want
-                to learn React, don't worry: ReactJS is a crucial technology for
-                web developers, and in this course I'll also explain WHY that
-                matters!
+                {t(
+                  "detail.To create contemporary, responsive user interfaces for the online, React.js is the most well-known JavaScript toolkit you can use and learn today. This course will teach you React in-depth, starting with the fundamentals. You'll take a step-by-step look at all the key fundamentals, find many examples, and be introduced to advanced ideas. You'll learn all the theory, a ton of examples, tutorials, demos, exercises, and exercises in addition to a wealth of crucial information that is usually missed by other sources - After all, this course is excellent for a reason! And if you're just here for the advertisements or algorithms and don't even know why you want to learn React, don't worry ReactJS is a crucial technology for web developers, and in this course I'll also explain WHY that matters!"
+                )}
               </p>
             </div>
             <div className="grid grid-cols-12 py-4">
-              <h1 className="col-span-12 mt-0">What you will learn</h1>
+              <h1 className="col-span-12 mt-0">
+                {t("detail.What you will learn")}
+              </h1>
               <div className="col-span-6">
                 <ul className="leading-8">
                   <li className="">
@@ -174,32 +204,36 @@ export default function DetailPage() {
                       className="text-xl text-teal-500 mr-2"
                       icon={faCheck}
                     />
-                    Create web apps that are effective, quick, user-friendly,
-                    and responsive.
+                    {t(
+                      "detail.Create web apps that are effective, quick, user-friendly, and responsive."
+                    )}
                   </li>
                   <li className="">
                     <FontAwesomeIcon
                       className="text-xl text-teal-500 mr-2"
                       icon={faCheck}
                     />
-                    Apply for a well-paying job or work as a freelancer in one
-                    of the most sought-after professions in web development
-                    right now.
+                    {t(
+                      "detail.Apply for a well-paying job or work as a freelancer in one of the most sought-after professions in web development right now."
+                    )}
                   </li>
                   <li className="">
                     <FontAwesomeIcon
                       className="text-xl text-teal-500 mr-2"
                       icon={faCheck}
                     />
-                    Deliver a great user experience by leveraging the power of
-                    JavaScript with ease
+                    {t(
+                      "detail.Deliver a great user experience by leveraging the power of JavaScript with ease"
+                    )}
                   </li>
                   <li className="">
                     <FontAwesomeIcon
                       className="text-xl text-teal-500 mr-2"
                       icon={faCheck}
                     />
-                    Learn all about React Hooks and React Components
+                    {t(
+                      "detail.Learn all about React Hooks and React Components"
+                    )}
                   </li>
                 </ul>
               </div>
@@ -210,79 +244,61 @@ export default function DetailPage() {
                       className="text-xl text-teal-500 mr-2"
                       icon={faCheck}
                     />
-                    Fluent in React support toolchain, including Javascript NPM,
-                    Webpack, Babel and ES6/ES2015 syntax
+                    {t(
+                      "detail.Fluent in React support toolchain, including Javascript NPM, Webpack, Babel and ES6/ES2015 syntax"
+                    )}
                   </li>
                   <li className="">
                     <FontAwesomeIcon
                       className="text-xl text-teal-500 mr-2"
                       icon={faCheck}
                     />
-                    Recognize the potential of creating modular components
+                    {t(
+                      "detail.Recognize the potential of creating modular components"
+                    )}
                   </li>
                   <li className="">
                     <FontAwesomeIcon
                       className="text-xl text-teal-500 mr-2"
                       icon={faCheck}
                     />
-                    Be the engineer that explains how Redux works, because you
-                    know the fundamentals so well
+                    {t(
+                      "detail. Be the engineer that explains how Redux works, because you know the fundamentals so well"
+                    )}
                   </li>
                   <li className="">
                     <FontAwesomeIcon
                       className="text-xl text-teal-500 mr-2"
                       icon={faCheck}
                     />
-                    Learn the fundamental principles of Redux application
-                    structure.
+                    {t(
+                      "detail.Learn the fundamental principles of Redux application structure."
+                    )}
                   </li>
                 </ul>
               </div>
             </div>
             <h2 className="text-2xl font-bold tracking-wide pb-4">
-              Course content
+              {t("detail.Course content")}
             </h2>
             <div className="py-4">
               <div className="bg-slate-200 py-3 px-2 md:p-0 flex items-center md:h-24 ">
                 <h3 className="font-medium text-xl flex items-center">
-                  SECTION 1: INTRODUCTION
+                  {t("detail.SECTION 1 INTRODUCTION")}
+
                   <span className="text-sm p-2 ml-2 hidden lg:block text-teal-500 border-teal-500 border-2 cursor-pointer hover:text-white delay-150 duration-200 hover:bg-teal-500 hover:scale-75 transition-all hover:ease-linear">
-                    PREVIEW
+                    {t("detail.PREVIEW")}
                   </span>
                 </h3>
               </div>
               <div>
-                <h3 className="py-3 text-lg">Lesson</h3>
+                <h3 className="py-3 text-lg">{t("detail.Lesson")}</h3>
                 <div className="flex items-center justify-between px-2 py-3 border-teal-500 border-2 border-t-transparent">
                   <div className="flex items-center">
                     <div className="mr-2 text-teal-500">
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
-                    <h2>React Components Concepts</h2>
-                  </div>
-                  <div className="flex items-center">
-                    <FontAwesomeIcon className="text-teal-500" icon={faClock} />
-                    <h2 className="ml-2">14:35</h2>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between px-2 py-3 border-teal-500 border-2 border-t-transparent">
-                  <div className="flex items-center">
-                    <div className="mr-2 text-teal-500">
-                      <FontAwesomeIcon icon={faPlay} />
-                    </div>
-                    <h2>Setting up the environment for Windows</h2>
-                  </div>
-                  <div className="flex items-center">
-                    <FontAwesomeIcon className="text-teal-500" icon={faClock} />
-                    <h2 className="ml-2">14:35</h2>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between px-2 py-3 border-teal-500 border-2 border-t-transparent">
-                  <div className="flex items-center">
-                    <div className="mr-2 text-teal-500">
-                      <FontAwesomeIcon icon={faPlay} />
-                    </div>
-                    <h2>Create React Apps - React-Scripts</h2>
+                    <h2>{t("detail.React Components Concepts")}</h2>
                   </div>
                   <div className="flex items-center">
                     <FontAwesomeIcon className="text-teal-500" icon={faClock} />
@@ -295,7 +311,35 @@ export default function DetailPage() {
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
                     <h2>
-                      An immediate comment on quotes for string interpolation
+                      {t("detail.Setting up the environment for Windows")}
+                    </h2>
+                  </div>
+                  <div className="flex items-center">
+                    <FontAwesomeIcon className="text-teal-500" icon={faClock} />
+                    <h2 className="ml-2">14:35</h2>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between px-2 py-3 border-teal-500 border-2 border-t-transparent">
+                  <div className="flex items-center">
+                    <div className="mr-2 text-teal-500">
+                      <FontAwesomeIcon icon={faPlay} />
+                    </div>
+                    <h2>{t("detail.Create React Apps - React-Scripts")}</h2>
+                  </div>
+                  <div className="flex items-center">
+                    <FontAwesomeIcon className="text-teal-500" icon={faClock} />
+                    <h2 className="ml-2">14:35</h2>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between px-2 py-3 border-teal-500 border-2 border-t-transparent">
+                  <div className="flex items-center">
+                    <div className="mr-2 text-teal-500">
+                      <FontAwesomeIcon icon={faPlay} />
+                    </div>
+                    <h2>
+                      {t(
+                        "detail.An immediate comment on quotes for string interpolation"
+                      )}
                     </h2>
                   </div>
                   <div className="flex items-center">
@@ -308,20 +352,23 @@ export default function DetailPage() {
             <div className="py-4">
               <div className="bg-slate-200 py-3 px-2 md:p-0 flex items-center">
                 <h3 className="font-medium text-xl flex items-center md:h-24 ">
-                  SECTION 2: BASIC KNOWLEDGE
+                  {t("detail.SECTION 2 BASIC KNOWLEDGE")}
+
                   <span className="text-sm p-2 ml-2 hidden lg:block text-teal-500 border-teal-500 border-2 cursor-pointer hover:text-white delay-150 duration-200 hover:bg-teal-500 hover:scale-75 transition-all hover:ease-linear">
-                    PREVIEW
+                    {t("detail.PREVIEW")}
                   </span>
                 </h3>
               </div>
               <div>
-                <h3 className="py-3 text-lg">Lesson</h3>
+                <h3 className="py-3 text-lg">{t("detail.Lesson")}</h3>
                 <div className="flex items-center justify-between px-2 py-3 border-teal-500 border-2 border-t-transparent">
                   <div className="flex items-center">
                     <div className="mr-2 text-teal-500">
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
-                    <h2>components of the home page and directory</h2>
+                    <h2>
+                      {t("detail.Components of the home page and directory")}
+                    </h2>
                   </div>
                   <div className="flex items-center">
                     <FontAwesomeIcon className="text-teal-500" icon={faClock} />
@@ -333,7 +380,7 @@ export default function DetailPage() {
                     <div className="mr-2 text-teal-500">
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
-                    <h2>Course Guide + Github Link</h2>
+                    <h2>{t("detail.Course Guide + Github Link")}</h2>
                   </div>
                   <div className="flex items-center">
                     <FontAwesomeIcon className="text-teal-500" icon={faClock} />
@@ -345,7 +392,7 @@ export default function DetailPage() {
                     <div className="mr-2 text-teal-500">
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
-                    <h2>E-commerce homepage + SASS setup</h2>
+                    <h2>{t("detail.E-commerce homepage + SASS setup")}</h2>
                   </div>
                   <div className="flex items-center">
                     <FontAwesomeIcon className="text-teal-500" icon={faClock} />
@@ -357,7 +404,7 @@ export default function DetailPage() {
                     <div className="mr-2 text-teal-500">
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
-                    <h2>CSS and SCSS files</h2>
+                    <h2>{t("detail.CSS and SCSS files")}</h2>
                   </div>
                   <div className="flex items-center">
                     <FontAwesomeIcon className="text-teal-500" icon={faClock} />
@@ -369,7 +416,11 @@ export default function DetailPage() {
                     <div className="mr-2 text-teal-500">
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
-                    <h2>React 17: Update Packages + Latest React Version</h2>
+                    <h2>
+                      {t(
+                        "detail.React 17 Update Packages + Latest React Version"
+                      )}
+                    </h2>
                   </div>
                   <div className="flex items-center">
                     <FontAwesomeIcon className="text-teal-500" icon={faClock} />
@@ -381,20 +432,21 @@ export default function DetailPage() {
             <div className="py-4">
               <div className="bg-slate-200 py-3 px-2 md:p-0 flex items-center md:h-24 ">
                 <h3 className="font-medium text-xl flex items-center">
-                  SECTION 3: KNOWLEDGE OF THE DEPARTMENT
+                  {t("detail.SECTION 3 KNOWLEDGE OF THE DEPARTMENT")}
+
                   <span className="text-sm p-2 ml-2 hidden lg:block text-teal-500 border-teal-500 border-2 cursor-pointer hover:text-white delay-150 duration-200 hover:bg-teal-500 hover:scale-75 transition-all hover:ease-linear">
-                    PREVIEW
+                    {t("detail.PREVIEW")}
                   </span>
                 </h3>
               </div>
               <div>
-                <h3 className="py-3 text-lg">Lesson</h3>
+                <h3 className="py-3 text-lg">{t("detail.Lesson")}</h3>
                 <div className="flex items-center justify-between px-2 py-3 border-teal-500 border-2 border-t-transparent">
                   <div className="flex items-center">
                     <div className="mr-2 text-teal-500">
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
-                    <h2>Connect and mapStateToProps</h2>
+                    <h2>{t("detail.Connect and mapStateToProps")}</h2>
                   </div>
                   <div className="flex items-center">
                     <FontAwesomeIcon className="text-teal-500" icon={faClock} />
@@ -406,7 +458,7 @@ export default function DetailPage() {
                     <div className="mr-2 text-teal-500">
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
-                    <h2>Directory status into Redux</h2>
+                    <h2>{t("detail.Directory status into Redux")}</h2>
                   </div>
                   <div className="flex items-center">
                     <FontAwesomeIcon className="text-teal-500" icon={faClock} />
@@ -418,7 +470,7 @@ export default function DetailPage() {
                     <div className="mr-2 text-teal-500">
                       <FontAwesomeIcon icon={faPlay} />
                     </div>
-                    <h2>Components Collection Overview</h2>
+                    <h2>{t("detail.Components Collection Overview")}</h2>
                   </div>
                   <div className="flex items-center">
                     <FontAwesomeIcon className="text-teal-500" icon={faClock} />
@@ -445,7 +497,9 @@ export default function DetailPage() {
                     $599
                   </span>
                 </h3>
-                <h4 className="hidden lg:block">Deals for every day</h4>
+                <h4 className="hidden lg:block">
+                  {t("detail.Deals for every day")}
+                </h4>
               </div>
               <div className="mt-3 flex items-center justify-between  sm:px-1 md:px-1 lg:px-2">
                 <h3>
@@ -453,9 +507,9 @@ export default function DetailPage() {
                     className="text-teal-500 mr-2"
                     icon={faTelevision}
                   />
-                  OffLine Classes:
+                  {t("detail.OffLine Classes")}
                 </h3>
-                <h4>No</h4>
+                <h4>{t("detail.No")}</h4>
               </div>
 
               <div className="mt-3 flex items-center justify-between sm:px-1 md:px-1 lg:px-2">
@@ -464,9 +518,9 @@ export default function DetailPage() {
                     className="text-teal-500 mr-2"
                     icon={faChartSimple}
                   />
-                  Category:
+                  {t("detail.Category")}
                 </h3>
-                <h4>Development</h4>
+                <h4>{t("detail.Development")}</h4>
               </div>
               <div className="mt-3 flex items-center justify-between  sm:px-1 md:px-1 lg:px-2">
                 <h3>
@@ -474,9 +528,10 @@ export default function DetailPage() {
                     className="text-teal-500 mr-2"
                     icon={faClock}
                   />
-                  Time:
+
+                  {t("detail.Time")}
                 </h3>
-                <h4>24 Hour</h4>
+                <h4>{t("detail.24 Hour")}</h4>
               </div>
               <div className="mt-3 lg:flex items-center justify-between hidden sm:px-1 md:px-1 lg:px-2">
                 <h3>
@@ -484,9 +539,9 @@ export default function DetailPage() {
                     className="text-teal-500 mr-2"
                     icon={faStore}
                   />
-                  Source:
+                  {t("detail.Source")}
                 </h3>
-                <h4>Not update</h4>
+                <h4>{t("detail.Not update")}</h4>
               </div>
               <div className="mt-3 flex items-center justify-between sm:px-1 md:px-1 lg:px-2">
                 <h3>
@@ -494,7 +549,7 @@ export default function DetailPage() {
                     className="text-teal-500 mr-2"
                     icon={faUsers}
                   />
-                  Student:
+                  {t("detail.Student")}
                 </h3>
                 <h4>20</h4>
               </div>
@@ -504,7 +559,7 @@ export default function DetailPage() {
                     className="text-teal-500 mr-2"
                     icon={faVideo}
                   />
-                  Video:
+                  {t("detail.Video")}
                 </h3>
                 <h4>28</h4>
               </div>
@@ -514,9 +569,9 @@ export default function DetailPage() {
                     className="text-teal-500 mr-2"
                     icon={faKey}
                   />
-                  Access Time:
+                  {t("detail.Access Time")}
                 </h3>
-                <h4>Forever</h4>
+                <h4>{t("detail.Forever")}</h4>
               </div>
               <div className="mt-3">
                 <h2
@@ -525,20 +580,20 @@ export default function DetailPage() {
                   }}
                   className="text-teal-600 text-xl underline text-center cursor-pointer hover:opacity-80"
                 >
-                  Discount code
+                  {t("detail.Discount code")}
                 </h2>
                 {show ? (
                   <form className="flex px-3 justify-center mt-3" action="">
                     <input
                       className="lg:py-3 lg:px-2 md:py-2 md:px-1 py-2 px-1 flex items-center outline-transparent"
                       type="text"
-                      placeholder="Enter discount code"
+                      placeholder={t("detail.Enter discount code")}
                     />
                     <button
                       onClick={handleClickButton}
                       className={`${styles["coupon"]} lg:px-2 lg:py-3 md:py-2 md:px-1 py-2 px-1 focus:outline-transparent hover:text-white`}
                     >
-                      Apply
+                      {t("detail.Apply")}
                     </button>
                   </form>
                 ) : null}
@@ -548,7 +603,7 @@ export default function DetailPage() {
                   onClick={handleRegisterCourses}
                   className={`${styles["coupon"]} px-14 py-3  text-xl focus:outline-transparent text-white  transition-all hover:opacity-80`}
                 >
-                  Register
+                  {t("detail.Register")}
                 </button>
               </div>
             </div>

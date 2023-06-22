@@ -1,17 +1,20 @@
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCode } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styles from "./TopCategories.module.scss";
+import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 
 export default function TopCategories() {
+  const { t } = useTranslation("home");
   return (
     <div className="py-[60px] md:py-[60px] lg:py-[100px] px-0 md:px-8 lg:px-8">
       <div className={`${styles["catagories__title"]}`}>
         <h2 className="md:text-base lg:text-base text-sm font-semibold">
-          Top Categories
+          {t("top-categories.Top Categories")}
         </h2>
         <h1 className="text-[28px] md:text-[40px] lg:text-[40px] font-bold mb-[50px]">
-          Browse Top Categories
+          {t("top-categories.Browse Top Categories")}
         </h1>
       </div>
       <div
@@ -140,7 +143,7 @@ export default function TopCategories() {
           <div
             className={`flex items-center justify-between px-[30px] py-5 ${styles["catagories__item"]} mb-[30px] `}
           >
-            <h3>IT & Software</h3>
+            <h3>{t("top-categories.IT & Software")}</h3>
             <FontAwesomeIcon
               className={`${styles["catagories__icon"]}`}
               icon={faCode}
@@ -152,7 +155,7 @@ export default function TopCategories() {
           <div
             className={`flex items-center justify-between px-[30px] py-5 ${styles["catagories__item"]} mb-[30px] `}
           >
-            <h3>Development</h3>
+            <h3>{t("top-categories.Development")}</h3>
             <FontAwesomeIcon
               className={`${styles["catagories__icon"]}`}
               icon={faCode}
@@ -160,7 +163,19 @@ export default function TopCategories() {
           </div>
         </div>
       </div>
-      <h3 className="flex items-center justify-center">Browse All</h3>
+      <div className="flex items-center justify-center">
+        {t("top-categories.Browse All")}
+        <NavLink to="/courses-list">
+          <h3
+            className={`flex items-center ml-2 ${styles["catagories__link-course"]} hover:opacity-70 `}
+          >
+            {t("top-categories.Courses")}
+            <span className="relative top-[2px] ml-2">
+              <FontAwesomeIcon icon={faArrowRight} />
+            </span>
+          </h3>
+        </NavLink>
+      </div>
     </div>
   );
 }

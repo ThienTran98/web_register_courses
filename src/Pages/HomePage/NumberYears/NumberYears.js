@@ -7,6 +7,7 @@ import logo5 from "../../../asset/img/xfdt2sondensxindk4xf.png";
 import CountUp, { useCountUp } from "react-countup";
 import styles from "./NumberYears.module.scss";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function NumberYears() {
   useCountUp({
@@ -15,6 +16,7 @@ export default function NumberYears() {
     enableScrollSpy: true,
     scrollSpyDelay: 2000,
   });
+  const { t } = useTranslation("home");
   return (
     <div className="hidden md:block lg:block">
       <div
@@ -30,7 +32,9 @@ export default function NumberYears() {
               <CountUp end={1985} enableScrollSpy />
               <span className="ml-2">+</span>
             </h3>
-            <h4 className={`${styles["number__title"]}`}>Publish</h4>
+            <h4 className={`${styles["number__title"]}`}>
+              {t("number-years.Publish")}
+            </h4>
           </div>
           <div className="flex flex-col items-center">
             <img src={logo2} alt="logo" />
@@ -38,7 +42,9 @@ export default function NumberYears() {
               <CountUp end={120} enableScrollSpy />
               <span className="ml-2">+</span>
             </h3>
-            <h4 className={`${styles["number__title"]}`}>University</h4>
+            <h4 className={`${styles["number__title"]}`}>
+              {t("number-years.University")}
+            </h4>
           </div>
           <div className="flex flex-col items-center">
             <img src={logo3} alt="logo" />
@@ -46,7 +52,9 @@ export default function NumberYears() {
               <CountUp end={100000} enableScrollSpy />
               <span className="ml-2">+</span>
             </h3>
-            <h4 className={`${styles["number__title"]}`}>Student</h4>
+            <h4 className={`${styles["number__title"]}`}>
+              {t("number-years.Student")}
+            </h4>
           </div>
           <div className="flex flex-col items-center">
             <img src={logo4} alt="logo" />
@@ -54,7 +62,9 @@ export default function NumberYears() {
               <CountUp end={10000} enableScrollSpy />
               <span className="ml-2">+</span>
             </h3>
-            <h4 className={`${styles["number__title"]}`}>Partner</h4>
+            <h4 className={`${styles["number__title"]}`}>
+              {t("number-years.Partner")}
+            </h4>
           </div>
           <div className="flex flex-col items-center">
             <img src={logo5} alt="logo" />
@@ -62,7 +72,9 @@ export default function NumberYears() {
               <CountUp end={400} enableScrollSpy />
               <span className="ml-2">+</span>
             </h3>
-            <h4 className={`${styles["number__title"]}`}>Courses</h4>
+            <h4 className={`${styles["number__title"]}`}>
+              {t("number-years.Courses")}
+            </h4>
           </div>
         </div>
       </div>

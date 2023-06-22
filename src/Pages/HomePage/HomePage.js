@@ -9,6 +9,7 @@ import React, { useEffect, useState, Suspense, lazy } from "react";
 // import NumberYears from "./NumberYears/NumberYears";
 import { getCoursesList } from "../../Service/coursesService";
 import Skeleton from "react-loading-skeleton";
+import { useTranslation } from "react-i18next";
 
 const Banner = lazy(() => import("./Banner/Banner"));
 const PopularCourses = lazy(() => import("./PopularCourses/PopularCourses"));
@@ -21,6 +22,8 @@ const NumberYears = lazy(() => import("./NumberYears/NumberYears"));
 
 export default function HomePage() {
   const [listCourses, setListCourses] = useState([]);
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language;
   useEffect(() => {
     const timeId = setTimeout(() => {
       getCoursesList()
@@ -33,9 +36,14 @@ export default function HomePage() {
       clearTimeout(timeId);
     };
   }, []);
+
   useEffect(() => {
-    document.title = "Courses";
-  }, []);
+    if (currentLanguage === "en") {
+      document.title = "Courses - Register Course";
+    } else {
+      document.title = "Khóa học - Đăng kí khóa học";
+    }
+  }, [currentLanguage]);
   return (
     <div>
       <Suspense fallback={<Skeleton className="w-screen h-screen" />}>

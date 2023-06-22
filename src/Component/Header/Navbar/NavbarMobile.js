@@ -7,6 +7,7 @@ import {
   faCartShopping,
   faCreditCard,
   faGear,
+  faGlobe,
   faHeart,
   faMagnifyingGlass,
   faXmark,
@@ -27,28 +28,43 @@ import {
   userLocalStorage,
 } from "../../../Service/localService";
 import styles from "./navbar.module.scss";
+import { useTranslation } from "react-i18next";
 
 export default function NavbarMobile() {
   const [show, setShow] = useState(false);
   const [showInfor, setShowInfor] = useState(false);
+  const [showChangeLanguage, setShowChangeLanguage] = useState(false);
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
+  const { t, i18n } = useTranslation("header");
+  const currentLanguage = i18n.language;
   // Log Out
   const handleLogOut = () => {
     dispatch(setUserLogOut(null));
     userLocalStorage.remove();
     coursesListRegisterStorage.remove();
     setShowInfor(false);
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Log out successfully",
-      showConfirmButton: false,
-      timer: 1000,
-    });
+    if (currentLanguage === "en") {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Log out successfully !",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    } else {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Đăng xuất thành công !",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    }
+
     setShow(false);
     navigation("/login");
     setTimeout(() => {
@@ -67,47 +83,6 @@ export default function NavbarMobile() {
             <NavLink to="/">
               <img src={logoIcon} alt="" />
             </NavLink>
-          </div>
-          <div className="hidden lg:flex justify-between items-center grow ">
-            <div
-              className={`flex justify-center items-center ${styles["container__search"]} `}
-            >
-              <input
-                className={`${styles["form-control"]}`}
-                type="text"
-                placeholder="Search Course"
-              />
-              <FontAwesomeIcon
-                className="text-teal-600"
-                icon={faMagnifyingGlass}
-              />
-            </div>
-
-            <div
-              className="hidden w-full md:block md:w-auto"
-              id="navbar-default"
-            >
-              <ul className="flex items-center flex-col p-4 border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
-                <li>
-                  <NavLink
-                    className="block py-4  hover:no-underline focus:text-teal-600 pl-3 pr-4 text-base hover:scale-x-125 rounded ease-in duration-300 hover:bg-transparent hover:text-teal-700"
-                    aria-current="page"
-                  >
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="block py-4 hover:no-underline pl-3 pr-4 text-base  focus:text-teal-600 hover:scale-x-125 rounded  ease-in duration-300 hover:bg-transparent hover:text-teal-700">
-                    Course
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="block py-4 hover:no-underline pl-3 pr-4 text-base  focus:text-teal-600 rounded hover:scale-x-125  hover:bg-transparent ease-in duration-300 hover:text-teal-700">
-                    Become An Instructor
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
           </div>
           <ul className="flex justify-between items-center">
             <li className="px-8 md:mr-8 lg:mr-8 lg:border-x-zinc-400  lg:border-y-transparent text-3xl lg:text-2xl lg:border-2 relative">
@@ -132,7 +107,7 @@ export default function NavbarMobile() {
                     to="/register"
                     className="block hover:text-white no-underline hover:no-underline"
                   >
-                    Register Now
+                    {t("navbar.Register Now")}
                   </NavLink>
                 </button>
               </li>
@@ -146,7 +121,7 @@ export default function NavbarMobile() {
                   />
                   {!showInfor ? (
                     <FontAwesomeIcon
-                      className="cursor-pointer text-3xl mx-2 text-teal-600  py-1"
+                      className="text-3xl cursor-pointer text-teal-600 py-1 mx-3"
                       onClick={() => {
                         setShowInfor(!showInfor);
                       }}
@@ -157,7 +132,7 @@ export default function NavbarMobile() {
                       onClick={() => {
                         setShowInfor(!showInfor);
                       }}
-                      className="text-3xl cursor-pointer mx-2 text-teal-600 py-1"
+                      className="text-3xl cursor-pointer text-teal-600 py-1 mx-3"
                       icon={faCaretUp}
                     />
                   )}
@@ -172,7 +147,7 @@ export default function NavbarMobile() {
                         src="https://source.unsplash.com/40x40/?portrait?1"
                         alt=""
                       />
-                      <div>
+                      <div className="ml-3">
                         <h3>{user.hoTen}</h3>
                         <p>{user.email}</p>
                       </div>
@@ -187,7 +162,7 @@ export default function NavbarMobile() {
                             className="mr-3 block"
                             icon={faBook}
                           />
-                          My Learning
+                          {t("navbar.My Learning")}
                         </a>
                       </li>
                       <li className="py-2">
@@ -202,7 +177,7 @@ export default function NavbarMobile() {
                             className="mr-3 block"
                             icon={faCreditCard}
                           />
-                          My Purchase
+                          {t("navbar.My Purchase")}
                         </NavLink>
                       </li>
                       <li className="py-2">
@@ -218,10 +193,46 @@ export default function NavbarMobile() {
                               className="mr-3 block"
                               icon={faHeart}
                             />
-                            Wishlist
+                            {t("navbar.Wishlist")}
                           </a>
                         </NavLink>
                       </li>
+                      {showChangeLanguage ? (
+                        <li className="py-2 block md:block lg:hidden">
+                          <NavLink
+                            onClick={() => {
+                              setShowInfor(!showInfor);
+                              i18n.changeLanguage("vi");
+                              setShowChangeLanguage(!showChangeLanguage);
+                            }}
+                            className="flex items-center no-underline hover:no-underline hover:text-teal-500"
+                          >
+                            <FontAwesomeIcon
+                              className="mr-3 block"
+                              icon={faGlobe}
+                            />
+                            {t("navbar.Change Language")}
+                          </NavLink>
+                        </li>
+                      ) : (
+                        <li className="py-2 block md:block lg:hidden">
+                          <NavLink
+                            onClick={() => {
+                              setShowInfor(!showInfor);
+                              i18n.changeLanguage("en");
+                              setShowChangeLanguage(!showChangeLanguage);
+                            }}
+                            className="flex items-center no-underline hover:no-underline hover:text-teal-500"
+                          >
+                            <FontAwesomeIcon
+                              className="mr-3 block"
+                              icon={faGlobe}
+                            />
+                            {t("navbar.Change Language")}
+                          </NavLink>
+                        </li>
+                      )}
+
                       <li className="py-2">
                         <NavLink
                           onClick={() => {
@@ -234,7 +245,7 @@ export default function NavbarMobile() {
                             className="mr-3 block"
                             icon={faGear}
                           />
-                          Account Setting
+                          {t("navbar.Account Setting")}
                         </NavLink>
                       </li>
                     </ul>
@@ -246,7 +257,7 @@ export default function NavbarMobile() {
                         className="mr-3 block"
                         icon={faArrowCircleLeft}
                       />
-                      Log Out
+                      {t("navbar.Log Out")}
                     </div>
                   </div>
                 ) : null}
@@ -286,10 +297,12 @@ export default function NavbarMobile() {
         <div className="border-t lg:hidden transition duration-300 ease-linear">
           <ul className="px-6 py-3 transition duration-300 ease-linear">
             <li className="mt-3 hover:text-teal-600">
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">{t("navbar.Home")}</NavLink>
             </li>
-            <li className="mt-3 hover:text-teal-600">Courses</li>
-            <li className="mt-3 hover:text-teal-600">Become An Instructor</li>
+            <li className="mt-3 hover:text-teal-600">{t("navbar.Course")}</li>
+            <li className="mt-3 hover:text-teal-600">
+              {t("navbar.Become An Instructor")}
+            </li>
           </ul>
         </div>
       ) : null}
