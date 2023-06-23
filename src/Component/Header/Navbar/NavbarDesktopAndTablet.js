@@ -37,6 +37,7 @@ export default function NavbarDesktopAndTablet() {
   const user = useSelector((state) => {
     return state.userSlice.user;
   });
+
   // Log Out
   const handleLogOut = () => {
     dispatch(setUserLogOut(null));
@@ -70,6 +71,8 @@ export default function NavbarDesktopAndTablet() {
   const listRegisterCourses = useSelector((state) => {
     return state.coursesSlice.coursesListRegister;
   });
+  console.log("listRegisterCourses.length: ", listRegisterCourses.length);
+
   return (
     <div className="shadow-2xl bg-white">
       <div className="container px-8 mx-auto py-4 lg:py-2.5">
@@ -112,14 +115,20 @@ export default function NavbarDesktopAndTablet() {
           </div>
           <ul className="flex justify-between items-center">
             <li className="px-8 md:mr-8  lg:mr-8 lg:border-zinc-400 lg:border-r-2 text-3xl lg:text-2xl md:border-zinc-400 md:border-r-2">
-              <NavLink to="/check-out" className="relative">
-                <FontAwesomeIcon
-                  className="text-teal-600 block"
-                  icon={faCartShopping}
-                />
-                <p className={`${styles["item__cart--number"]} font-bold`}>
-                  {listRegisterCourses.length}
-                </p>
+              <NavLink to="/check-out">
+                <div className="relative block">
+                  <FontAwesomeIcon
+                    className="text-teal-600 block"
+                    icon={faCartShopping}
+                  />
+                  <div
+                    className={`${styles["item__cart--number"]} font-bold md:w-6 md:h-6 lg:w-5 lg:h-5  `}
+                  >
+                    <p className="relative md:top-[2px] lg:top-[1.5px]">
+                      {listRegisterCourses.length}
+                    </p>
+                  </div>
+                </div>
               </NavLink>
             </li>
             {!user ? (
