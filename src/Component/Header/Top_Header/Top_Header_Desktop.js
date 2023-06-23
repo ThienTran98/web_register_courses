@@ -1,5 +1,9 @@
 import React from "react";
-import { faArrowRight, faGlobeAsia } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faGlobe,
+  faGlobeAsia,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import styles from "./Top_Header.module.scss";
@@ -68,7 +72,7 @@ export default function Top_Header_Desktop() {
                     }}
                     className="flex items-center hover:text-teal-600 "
                   >
-                    <FontAwesomeIcon className="mr-4" icon={faGlobeAsia} />
+                    <FontAwesomeIcon className="mr-4" icon={faGlobe} />
                     <h3 className="">Tiếng Việt</h3>
                   </div>
                   <div
@@ -77,7 +81,7 @@ export default function Top_Header_Desktop() {
                     }}
                     className="flex items-center hover:text-teal-600 "
                   >
-                    <FontAwesomeIcon className="mr-4" icon={faGlobeAsia} />
+                    <FontAwesomeIcon className="mr-4" icon={faGlobe} />
                     <h3 className="">English</h3>
                   </div>
                 </div>
