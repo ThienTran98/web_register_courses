@@ -95,7 +95,7 @@ export default function InforPage() {
               <div>
                 <h2 className="font-bold text-base mb-5">
                   {t(
-                    "infor.Linux Administration Bootcamp: Go from Beginner to Advanced"
+                    "infor.Linux Administration Bootcamp Go from Beginner to Advanced"
                   )}
                 </h2>
                 <h3>
