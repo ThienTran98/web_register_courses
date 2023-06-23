@@ -144,13 +144,9 @@ export default function LoginPage() {
                   value={formik.values.taiKhoan}
                   placeholder={t("login.User Name")}
                 />
-                {currentLanguage === "en" && formik.errors.taiKhoan ? (
+                {formik.errors.taiKhoan && (
                   <h2 className="text-red-600 text-sm">
                     {formik.errors.taiKhoan}
-                  </h2>
-                ) : (
-                  <h2 className="text-red-600 text-sm">
-                    Vui lòng nhập trường này !
                   </h2>
                 )}
               </div>
@@ -165,13 +161,9 @@ export default function LoginPage() {
                   value={formik.values.matKhau}
                   placeholder={t("login.Password")}
                 />
-                {currentLanguage === "en" && formik.errors.matKhau ? (
+                {formik.errors.matKhau && (
                   <h2 className="text-red-600 text-sm">
                     {formik.errors.matKhau}
-                  </h2>
-                ) : (
-                  <h2 className="text-red-600 text-sm">
-                    Vui lòng nhập trường này !
                   </h2>
                 )}
               </div>

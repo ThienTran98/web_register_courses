@@ -8,6 +8,7 @@ import logoFlagVN from "../../../asset/img/flagVN.png";
 import logoFlagEngland from "../../../asset/img/Flag_of_the_United_States.svg";
 import { useTranslation } from "react-i18next";
 import { localLanguage } from "../../../i18n/i18n";
+import { changeLanguagesLocal } from "../../../Service/localService";
 
 export default function Top_Header_Desktop() {
   const user = useSelector((state) => {

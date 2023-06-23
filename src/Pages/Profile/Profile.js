@@ -106,13 +106,9 @@ export default function Profile() {
                   name="taiKhoan"
                   onChange={formik.handleChange}
                 />
-                {currentLanguage === "en" && formik.errors.taiKhoan ? (
+                {formik.errors.taiKhoan && (
                   <h2 className="text-red-600 text-sm">
                     {formik.errors.taiKhoan}
-                  </h2>
-                ) : (
-                  <h2 className="text-red-600 text-sm">
-                    Vui lòng nhập trường này !
                   </h2>
                 )}
               </div>
@@ -126,13 +122,9 @@ export default function Profile() {
                   onChange={formik.handleChange}
                   placeholder="********"
                 />
-                {currentLanguage === "en" && formik.errors.matKhau ? (
+                {formik.errors.matKhau && (
                   <h2 className="text-red-600 text-sm">
                     {formik.errors.matKhau}
-                  </h2>
-                ) : (
-                  <h2 className="text-red-600 text-sm">
-                    Vui lòng nhập trường này !
                   </h2>
                 )}
               </div>
@@ -146,13 +138,9 @@ export default function Profile() {
                   onChange={formik.handleChange}
                   placeholder={user.hoTen}
                 />
-                {currentLanguage === "en" && formik.errors.hoTen ? (
+                {formik.errors.hoTen && (
                   <h2 className="text-red-600 text-sm">
                     {formik.errors.hoTen}
-                  </h2>
-                ) : (
-                  <h2 className="text-red-600 text-sm">
-                    Vui lòng nhập trường này !
                   </h2>
                 )}
               </div>
@@ -166,12 +154,9 @@ export default function Profile() {
                   onChange={formik.handleChange}
                   placeholder="039965822"
                 />
-                {currentLanguage === "en" && formik.errors.soDT ? (
+
+                {formik.errors.soDT && (
                   <h2 className="text-red-600 text-sm">{formik.errors.soDT}</h2>
-                ) : (
-                  <h2 className="text-red-600 text-sm">
-                    Vui lòng nhập trường này !
-                  </h2>
                 )}
               </div>
               <div className={`${styles["form-group"]}`}>
@@ -184,13 +169,9 @@ export default function Profile() {
                   onChange={formik.handleChange}
                   placeholder={user.email}
                 />
-                {currentLanguage === "en" && formik.errors.email ? (
+                {formik.errors.email && (
                   <h2 className="text-red-600 text-sm">
                     {formik.errors.email}
-                  </h2>
-                ) : (
-                  <h2 className="text-red-600 text-sm">
-                    Vui lòng nhập trường này !
                   </h2>
                 )}
               </div>
