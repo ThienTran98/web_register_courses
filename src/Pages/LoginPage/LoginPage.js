@@ -54,7 +54,11 @@ export default function LoginPage() {
     },
   });
   const loginSocial = () => {
-    message.warning("This feature is under development !");
+    if (currentLanguage === "en") {
+      message.warning("This feature is under development !");
+    } else {
+      message.warning(" Tính năng này đang được phát triển !");
+    }
   };
   return (
     <section className="h-full lg:h-screen">
