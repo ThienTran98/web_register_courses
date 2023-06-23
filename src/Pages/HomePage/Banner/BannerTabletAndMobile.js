@@ -7,9 +7,11 @@ import client1 from "../../../asset/img/client-1.jpg";
 import client2 from "../../../asset/img/client-2.jpg";
 import client3 from "../../../asset/img/client-3.jpg";
 import styles from "./Banner.module.scss";
+import { useTranslation } from "react-i18next";
 
 export default function BannerTabletAndMobile() {
   const [valueSearch, setValueSearch] = useState("");
+  const { t } = useTranslation("home");
   const navigate = useNavigate();
   const handleSearchValues = (e) => {
     if (valueSearch.trim().length !== 0) {
@@ -33,23 +35,28 @@ export default function BannerTabletAndMobile() {
           <div className="banner-right">
             <div className={`${styles["homePage__banner__content"]} `}>
               <h1 className="animate-pulse md:text-[35px] text-[29px] text-center">
-                Improve Your Online Learning Experience Better Instantly
+                {t(
+                  "banner.Improve Your Online Learning Experience Better Instantly"
+                )}
               </h1>
 
               <p
                 className="text-center"
                 style={{ opacity: 1, transform: "none" }}
               >
-                We have <span>40k+</span> Online courses &amp;
-                <span>500K+</span> Online registered student. Find your desired
-                Courses from them.
+                {t("banner.We have")} <span>{t("banner.40k+")}</span>{" "}
+                {t("banner.Online courses &")}
+                <span>{t("banner.500K+")}</span>{" "}
+                {t(
+                  "banner.Online registered student. Find your desired Courses from them."
+                )}
               </p>
 
               <form className={`${styles["search-form"]} flex items-center`}>
                 <input
                   type="text"
                   className={`${styles["form-control"]} grow`}
-                  placeholder="Search Courses"
+                  placeholder={t("banner.Search Courses")}
                   name="search"
                   onChange={(e) => {
                     setValueSearch(e.target.value);
@@ -59,8 +66,7 @@ export default function BannerTabletAndMobile() {
                   onClick={handleSearchValues}
                   className={`${styles["default-btn"]} flex items-center`}
                 >
-                  Search Now
-                  {/* <FontAwesomeIcon className="ml-2" icon={faSearch} /> */}
+                  {t("banner.Search Now")}
                 </button>
               </form>
 
@@ -80,12 +86,13 @@ export default function BannerTabletAndMobile() {
                 </li>
                 <li className="flex items-center">
                   <p>
-                    500K+ People already trusted us.
+                    {t("banner.500K+ People already trusted us.")}
                     <NavLink
                       className="underline underline-offset-4 hover:opacity-75"
                       to="/courses-list"
                     >
-                      View Courses <FontAwesomeIcon icon={faArrowRight} />
+                      {t("banner.View Courses")}{" "}
+                      <FontAwesomeIcon icon={faArrowRight} />
                     </NavLink>
                   </p>
                 </li>

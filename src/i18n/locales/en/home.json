@@ -1,54 +1,54 @@
 {
-    "banner": {
-        "Improve Your Online Learning Experience Better Instantly": "Improve Your Online Learning Experience Better Instantly",
-        "We have": "We have",
-        "Online courses &": "Online courses &",
-        "40k+": "40k+",
-        "500K+": "500K+",
-        "Online registered student. Find your desired Courses from them.": "Online registered student. Find your desired Courses from them.",
-        "Search Courses": "Search Courses",
-        "Search Now": "Search Now",
-        "500K+ People already trusted us.": "500K+ People already trusted us.",
-        "View Courses": "View Courses"
-    },
-    "number-years": {
-        "Publish": "Publish",
-        "University": "University",
-        "Student": "Student",
-        "Partner": "Partner",
-        "Courses": "Courses"
-    },
-    "online-education": {
-        "Transform Your Life Through Online Education": "Transform Your Life Through Online Education",
-        "Instructors from around the world teach millions of students on Edmy. We provide the tools and skills to teach what you love. And you can also achieve your goal.": " Instructors from around the world teach millions of students on Edmy. We provide the tools and skills to teach what you love. And you can also achieve your goal.",
-        "Watch Video From the Community How Edmy Change Their Life": "Watch Video From the Community How Edmy Change Their Life",
-        "My Courses": "My Courses",
-        "Find Out How": "Find Out How"
-    },
-    "our-features": {
-        "Our Features": "Our Features",
-        "Why You Should Choose Edmy": "Why You Should Choose Edmy",
-        "Expert-Led Video Courses": "Expert-Led Video Courses",
-        "Instructors from around the world teach millions of students on Edmy through video.": "Instructors from around the world teach millions of students on Edmy through video."
-    },
-    "popular-courses": {
-        "Popular Courses": "Popular Courses",
-        "Expand Your Career Opportunity With Our Courses": "Expand Your Career Opportunity With Our Courses"
-    },
-    "say-about-us": {
-        "Our Students Are Our Strength. See What They Say About Us": "Our Students Are Our Strength. See What They Say About Us"
-    },
-    "top-categories": {
-        "IT & Software": "IT & Software",
-        "Development": "Development",
-        "Top Categories": "Top Categories",
-        "Browse Top Categories": "Browse Top Categories",
-        "Browse All": "Browse All",
-        "Courses": "Courses"
-    },
-    "view-courses": {
-        "Featured Courses": "Featured Courses",
-        "Find Yours From The Featured": " Find Yours From The Featured",
-        "View All": "View All"
-    }
+  "banner": {
+    "Improve Your Online Learning Experience Better Instantly": "Improve Your Online Learning Experience Better Instantly",
+    "We have": "We have",
+    "Online courses &": "Online courses & ",
+    "40k+": "40k+",
+    "500K+": "500K+",
+    "Online registered student. Find your desired Courses from them.": "Online registered student. Find your desired Courses from them.",
+    "Search Courses": "Search Courses",
+    "Search Now": "Search Now",
+    "500K+ People already trusted us.": "500K+ People already trusted us.",
+    "View Courses": "View Courses"
+  },
+  "number-years": {
+    "Publish": "Publish",
+    "University": "University",
+    "Student": "Student",
+    "Partner": "Partner",
+    "Courses": "Courses"
+  },
+  "online-education": {
+    "Transform Your Life Through Online Education": "Transform Your Life Through Online Education",
+    "Instructors from around the world teach millions of students on Edmy. We provide the tools and skills to teach what you love. And you can also achieve your goal.": " Instructors from around the world teach millions of students on Edmy. We provide the tools and skills to teach what you love. And you can also achieve your goal.",
+    "Watch Video From the Community How Edmy Change Their Life": "Watch Video From the Community How Edmy Change Their Life",
+    "My Courses": "My Courses",
+    "Find Out How": "Find Out How"
+  },
+  "our-features": {
+    "Our Features": "Our Features",
+    "Why You Should Choose Edmy": "Why You Should Choose Edmy",
+    "Expert-Led Video Courses": "Expert-Led Video Courses",
+    "Instructors from around the world teach millions of students on Edmy through video.": "Instructors from around the world teach millions of students on Edmy through video."
+  },
+  "popular-courses": {
+    "Popular Courses": "Popular Courses",
+    "Expand Your Career Opportunity With Our Courses": "Expand Your Career Opportunity With Our Courses"
+  },
+  "say-about-us": {
+    "Our Students Are Our Strength. See What They Say About Us": "Our Students Are Our Strength. See What They Say About Us"
+  },
+  "top-categories": {
+    "IT & Software": "IT & Software",
+    "Development": "Development",
+    "Top Categories": "Top Categories",
+    "Browse Top Categories": "Browse Top Categories",
+    "Browse All": "Browse All",
+    "Courses": "Courses"
+  },
+  "view-courses": {
+    "Featured Courses": "Featured Courses",
+    "Find Yours From The Featured": " Find Yours From The Featured",
+    "View All": "View All"
+  }
 }

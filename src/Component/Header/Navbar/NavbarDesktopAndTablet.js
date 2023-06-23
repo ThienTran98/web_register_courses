@@ -71,7 +71,7 @@ export default function NavbarDesktopAndTablet() {
     return state.coursesSlice.coursesListRegister;
   });
   return (
-    <div>
+    <div className="shadow-2xl bg-white">
       <div className="container px-8 mx-auto py-4 lg:py-2.5">
         <div className="flex justify-between items-center">
           <div className="mr-8">

@@ -49,8 +49,8 @@ export default function BannerDesktop() {
                 className="animate__animated animate__backInRight animate__slow  animate__delay-2s"
                 style={{ opacity: 1, transform: "none" }}
               >
-                {t("banner.We have")} <span>{t("banner.40k+")}</span>{" "}
-                {t("banner.Online courses")}
+                {t("banner.We have")} <span>{t("banner.40k+")}</span>
+                {t("banner.Online courses &")}
                 <span className="mx-1">{t("banner.500K+")}</span>
                 {t(
                   "banner.Online registered student. Find your desired Courses from them."
@@ -97,7 +97,7 @@ export default function BannerDesktop() {
                       className="underline underline-offset-4 hover:opacity-75"
                       to="/courses-list"
                     >
-                      {t("banner.View Courses")}{" "}
+                      {t("banner.View Courses")}
                       <FontAwesomeIcon icon={faArrowRight} />
                     </NavLink>
                   </p>

@@ -1,54 +1,54 @@
 {
-    "banner": {
-        "Improve Your Online Learning Experience Better Instantly": "Cải thiện trải nghiệm học tập trực tuyến của bạn tốt hơn ngay lập tức",
-        "We have": "Chúng tôi",
-        "Online courses &": "Các khóa học trực tuyến &",
-        "40k+": "có hơn 40 nghìn.",
-        "500K+": "có hơn 500 nghìn",
-        "Online registered student. Find your desired Courses from them.": "sinh viên đăng ký trực tuyến. Tìm các khóa học mong muốn của bạn từ họ.",
-        "Search Courses": "Tìm kiếm các khóa học",
-        "Search Now": "Tìm kiếm ngay",
-        "500K+ People already trusted us.": "Hơn 500 nghìn người đã tin tưởng chúng tôi.",
-        "View Courses": "Xem các khóa học"
-    },
-    "number-years": {
-        "Publish": "Thành Lập",
-        "University": "Đại Học",
-        "Student": "Sinh Viên",
-        "Partner": "Đối Tác",
-        "Courses": "Khóa Học"
-    },
-    "online-education": {
-        "Transform Your Life Through Online Education": "Thay đổi cuộc sống của bạn thông qua giáo dục trực tuyến",
-        "Instructors from around the world teach millions of students on Edmy. We provide the tools and skills to teach what you love. And you can also achieve your goal.": "Giảng viên từ khắp nơi trên thế giới giảng dạy cho hàng triệu sinh viên trên Edmy. Chúng tôi cung cấp các công cụ và kỹ năng để dạy những gì bạn yêu thích. Và bạn cũng có thể đạt được mục tiêu của mình.",
-        "Watch Video From the Community How Edmy Change Their Life": "Xem Video Từ Cộng Đồng Edmy Thay Đổi Cuộc Đời Họ Như Thế Nào",
-        "My Courses": "Khóa học của tôi",
-        "Find Out How": "Tìm hiểu nào"
-    },
-    "our-features": {
-        "Our Features": "Các Tính Năng Nổi Bật",
-        "Why You Should Choose Edmy": "Tại Sao Bạn Nên Chọn Edmy",
-        "Expert-Led Video Courses": "Các khóa học video do chuyên gia hướng dẫn",
-        "Instructors from around the world teach millions of students on Edmy through video.": "Giảng viên từ khắp nơi trên thế giới giảng dạy cho hàng triệu sinh viên về Edmy thông qua video."
-    },
-    "popular-courses": {
-        "Popular Courses": "Các khóa học phổ biến",
-        "Expand Your Career Opportunity With Our Courses": "Mở rộng cơ hội nghề nghiệp của bạn với các khóa học của chúng tôi"
-    },
-    "say-about-us": {
-        "Our Students Are Our Strength. See What They Say About Us": "Học sinh của chúng tôi là sức mạnh của chúng tôi. Xem học sinh nói gì về chúng tôi"
-    },
-    "top-categories": {
-        "IT & Software": "IT & Phần Mềm",
-        "Development": "Phát Triển",
-        "Top Categories": "Danh Mục Hàng Đầu",
-        "Browse Top Categories": "Duyệt các danh mục hàng đầu",
-        "Browse All": "Duyệt tất cả",
-        "Courses": "Các khóa học"
-    },
-    "view-courses": {
-        "Featured Courses": "Khóa Học Nổi Bật",
-        "Find Yours From The Featured": "Tìm kiếm các khóa học nổi bật cho bạn",
-        "View All": "Xem tất cả"
-    }
+  "banner": {
+    "Improve Your Online Learning Experience Better Instantly": "Cải thiện trải nghiệm học tập trực tuyến của bạn tốt hơn ngay lập tức",
+    "We have": "Chúng tôi",
+    "Online courses &": "Các khóa học trực tuyến và ",
+    "40k+": "có hơn 40 nghìn.",
+    "500K+": "có hơn 500 nghìn",
+    "Online registered student. Find your desired Courses from them.": "sinh viên đăng ký trực tuyến. Tìm các khóa học mong muốn của bạn từ họ.",
+    "Search Courses": "Tìm kiếm các khóa học",
+    "Search Now": "Tìm ngay",
+    "500K+ People already trusted us.": "Hơn 500 nghìn người đã tin tưởng chúng tôi.",
+    "View Courses": "Xem các khóa học"
+  },
+  "number-years": {
+    "Publish": "Thành Lập",
+    "University": "Đại Học",
+    "Student": "Sinh Viên",
+    "Partner": "Đối Tác",
+    "Courses": "Khóa Học"
+  },
+  "online-education": {
+    "Transform Your Life Through Online Education": "Thay đổi cuộc sống của bạn thông qua giáo dục trực tuyến",
+    "Instructors from around the world teach millions of students on Edmy. We provide the tools and skills to teach what you love. And you can also achieve your goal.": "Giảng viên từ khắp nơi trên thế giới giảng dạy cho hàng triệu sinh viên trên Edmy. Chúng tôi cung cấp các công cụ và kỹ năng để dạy những gì bạn yêu thích. Và bạn cũng có thể đạt được mục tiêu của mình.",
+    "Watch Video From the Community How Edmy Change Their Life": "Xem Video Từ Cộng Đồng Edmy Thay Đổi Cuộc Đời Họ Như Thế Nào",
+    "My Courses": "Khóa học của tôi",
+    "Find Out How": "Tìm hiểu nào"
+  },
+  "our-features": {
+    "Our Features": "Các Tính Năng Nổi Bật",
+    "Why You Should Choose Edmy": "Tại Sao Bạn Nên Chọn Edmy",
+    "Expert-Led Video Courses": "Các khóa học video do chuyên gia hướng dẫn",
+    "Instructors from around the world teach millions of students on Edmy through video.": "Giảng viên từ khắp nơi trên thế giới giảng dạy cho hàng triệu sinh viên về Edmy thông qua video."
+  },
+  "popular-courses": {
+    "Popular Courses": "Các khóa học phổ biến",
+    "Expand Your Career Opportunity With Our Courses": "Mở rộng cơ hội nghề nghiệp của bạn với các khóa học của chúng tôi"
+  },
+  "say-about-us": {
+    "Our Students Are Our Strength. See What They Say About Us": "Học sinh của chúng tôi là sức mạnh của chúng tôi. Xem học sinh nói gì về chúng tôi"
+  },
+  "top-categories": {
+    "IT & Software": "IT & Phần Mềm",
+    "Development": "Phát Triển",
+    "Top Categories": "Danh Mục Hàng Đầu",
+    "Browse Top Categories": "Duyệt các danh mục hàng đầu",
+    "Browse All": "Duyệt tất cả",
+    "Courses": "Các khóa học"
+  },
+  "view-courses": {
+    "Featured Courses": "Khóa Học Nổi Bật",
+    "Find Yours From The Featured": "Tìm kiếm các khóa học nổi bật cho bạn",
+    "View All": "Xem tất cả"
+  }
 }
