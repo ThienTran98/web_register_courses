@@ -63,7 +63,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  language: "vi",
+  language: "en",
   ns: [
     "header",
     "home",
@@ -78,7 +78,7 @@ i18n.use(initReactI18next).init({
     "profile",
     "search",
   ],
-  fallbackLng: "vi",
+  fallbackLng: "en",
   interpolation: {
     escapeValue: false, // react already safes from xss
   },
