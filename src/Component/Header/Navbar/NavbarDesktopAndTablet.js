@@ -61,7 +61,6 @@ export default function NavbarDesktopAndTablet() {
         timer: 1000,
       });
     }
-
     navigation("/login");
     setTimeout(() => {
       window.location.reload();
@@ -71,8 +70,6 @@ export default function NavbarDesktopAndTablet() {
   const listRegisterCourses = useSelector((state) => {
     return state.coursesSlice.coursesListRegister;
   });
-  console.log("listRegisterCourses.length: ", listRegisterCourses.length);
-
   return (
     <div className="shadow-2xl bg-white">
       <div className="container px-8 mx-auto py-4 lg:py-2.5">
